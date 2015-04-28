@@ -38,5 +38,9 @@ public class setting extends World
         
         Food food = new Food();
         addObject(food, 60, 268);
-    }
+            Powerbar powerbar = new Powerbar();
+        addObject(powerbar, 45, 372);
+        powerbar.setLocation(120, 372);
+        removeObject(food);
+}
 }
