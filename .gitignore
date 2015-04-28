@@ -1,7 +1,7 @@
 # Greenfoot #
 *.ctxt
 *.greenfoot
-/doc/*
+doc/*
 
 
 # Compiled source #
