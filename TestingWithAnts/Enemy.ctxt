@@ -8,4 +8,6 @@ comment1.text=\r\n\ Checks\ if\ the\ mouse\ is\ on\ the\ enemy\r\n
 comment2.params=actor
 comment2.target=void\ checkKill(greenfoot.Actor)
 comment2.text=\r\n\ Kill\ the\ actor\ and\ remove\ it\ from\ the\ world\r\n
-numComments=3
+comment3.params=
+comment3.target=void\ killAnts()
+numComments=4

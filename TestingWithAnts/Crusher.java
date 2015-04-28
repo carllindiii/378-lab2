@@ -1,4 +1,5 @@
 import greenfoot.*;
+import java.util.*;
 
 /**
  * Write a description of class Crusher here.
@@ -39,8 +40,12 @@ public class Crusher extends Spawnables
      */
     private void crush()
     {
-        getWorld().removeObjects(getIntersectingObjects(Ant.class));
+        List ants = getIntersectingObjects(Enemy.class);
+        setting w = (setting)getWorld();
+        
+        w.score += ants.size();
+        w.removeObjects(ants);
         //getWorld().removeObjects(getObjectsInRange(50, Ant.class));
-        getWorld().removeObject(this);
+        w.removeObject(this);
     }
 }

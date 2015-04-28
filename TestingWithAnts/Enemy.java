@@ -34,7 +34,16 @@ public class Enemy extends Actor
     {
         if(mouseOnEnemy(actor) && Greenfoot.mouseClicked(null))
         {
-            getWorld().removeObject(actor);
+            setting w = (setting)getWorld();
+            w.score += 1;
+            
+            w.removeObject(actor);
         }
+    }
+    
+    public void killAnts() {
+        setting w = (setting)getWorld();
+        w.score += 1;
+        w.removeObject(this);
     }
 }
