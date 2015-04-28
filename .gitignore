@@ -1,3 +1,9 @@
+# Greenfoot #
+*.ctxt
+*.greenfoot
+/doc/*
+
+
 # Compiled source #
 ###################
 *.com
