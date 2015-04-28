@@ -1,5 +1,9 @@
 #Greenfoot properties
+<<<<<<< Updated upstream
 #Tue Apr 28 12:12:32 PDT 2015
+=======
+#Tue Apr 28 12:47:41 PDT 2015
+>>>>>>> Stashed changes
 target4.type=ClassTarget
 dependency3.from=setting
 target6.editor.width=900
@@ -40,6 +44,7 @@ dependency5.type=UsesDependency
 target2.typeParameters=
 dependency3.to=Spawner
 target3.showInterface=false
+class.Food.superclass=greenfoot.Actor
 target6.name=Spawnables
 dependency4.to=Spawnables
 class.setting.superclass=greenfoot.World
@@ -79,6 +84,7 @@ class.Crusher.image=button-yellow.png
 target2.type=ClassTarget
 target2.y=10
 target2.x=160
+class.Food.image=bread.png
 mainWindow.y=40
 mainWindow.x=40
 dependency1.from=setting

@@ -32,8 +32,15 @@ public class setting extends World
         addObject(spawner, 449, 103);
         Spawnables spawnables = new Spawnables();
         addObject(spawnables, 36, 37);
+<<<<<<< Updated upstream
         
         Scoreboard sb = new Scoreboard();
         addObject(sb, 50, 10);
+=======
+        Food food = new Food();
+        addObject(food, 70, 337);
+        food.setLocation(68, 303);
+        food.setLocation(60, 268);
+>>>>>>> Stashed changes
     }
 }
