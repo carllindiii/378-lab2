@@ -32,15 +32,20 @@ public class setting extends World
         addObject(spawner, 449, 103);
         Spawnables spawnables = new Spawnables();
         addObject(spawnables, 36, 37);
-        
+
         Scoreboard sb = new Scoreboard();
         addObject(sb, 50, 10);
-        
+
         Food food = new Food();
         addObject(food, 60, 268);
-            Powerbar powerbar = new Powerbar();
+        FoodCounter fc = new FoodCounter();
+        addObject(fc, food.getX(), food.getY() + 25);
+
+        Powerbar powerbar = new Powerbar();
         addObject(powerbar, 45, 372);
         powerbar.setLocation(120, 372);
-        removeObject(food);
-}
+
+        AntHome anthome = new AntHome();
+        addObject(anthome, 503, 301);
+    }
 }
