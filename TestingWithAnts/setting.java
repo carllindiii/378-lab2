@@ -16,7 +16,7 @@ public class setting extends World
     public setting()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
+        super(800, 600, 1); 
         score = 0;
         prepare();
     }
@@ -26,10 +26,8 @@ public class setting extends World
      */
     public void prepare()
     {   
-        Ant ant = new Ant();
-        addObject(ant, 215, 160);
         Spawner spawner = new Spawner();
-        addObject(spawner, 449, 103);
+        addObject(spawner, 663, 91);
         Spawnables spawnables = new Spawnables();
         addObject(spawnables, 36, 37);
 
@@ -37,15 +35,18 @@ public class setting extends World
         addObject(sb, 50, 10);
 
         Food food = new Food();
-        addObject(food, 60, 268);
+        addObject(food, 107, 431);
+        
         FoodCounter fc = new FoodCounter();
         addObject(fc, food.getX(), food.getY() + 25);
 
         Powerbar powerbar = new Powerbar();
-        addObject(powerbar, 45, 372);
-        powerbar.setLocation(120, 372);
+        addObject(powerbar, 118, 566);
 
         AntHome anthome = new AntHome();
-        addObject(anthome, 503, 301);
+        addObject(anthome, 730, 450);
+        
+        Ant ant = new Ant();
+        addObject(ant, 215, 160);
     }
 }

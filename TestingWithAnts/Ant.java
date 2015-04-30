@@ -110,7 +110,7 @@ public class Ant extends Enemy
         // Ant is far from the food
         else if (getWorld().getObjects(Food.class).isEmpty() == false)
         {
-            if (Greenfoot.getRandomNumber(1000) < 5)
+            if (Greenfoot.getRandomNumber(1000) < 10)
             {
                 food = (Food)(getWorld().getObjects(Food.class).get(0));
                 turnTowards(food.getX(), food.getY());
