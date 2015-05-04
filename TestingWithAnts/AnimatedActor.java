@@ -30,8 +30,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, and Greenfoot)
  */
 public class AnimatedActor extends Actor
 {
-    private GreenfootImage[] images;
-    private int currentImage = 0;
+    protected GreenfootImage[] images;
+    protected int currentImage = 0;
     
     /**
      * Construct an animated actor. This assumes that you have provided image
