@@ -17,8 +17,7 @@ public class Spawnables extends Actor
         MouseInfo mi = Greenfoot.getMouseInfo();
         
         //if (Greenfoot.getKey() == "c")
-        if (Greenfoot.isKeyDown("c"))
-        {
+        if (Greenfoot.isKeyDown("c")) {
             Crusher crush = new Crusher();
             getWorld().addObject(crush, mi.getX(), mi.getY());
         }

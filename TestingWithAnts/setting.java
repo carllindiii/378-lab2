@@ -26,27 +26,23 @@ public class setting extends World
      */
     public void prepare()
     {   
-        Spawner spawner = new Spawner();
-        addObject(spawner, 663, 91);
+        Hudbar hudbar = new Hudbar();
+        addObject(hudbar, 400, 550);
+        Powerbar powerbar = new Powerbar();
+        addObject(powerbar, 120, 560);
+        Scoreboard sb = new Scoreboard();
+        addObject(sb, 45, 525);
         Spawnables spawnables = new Spawnables();
-        addObject(spawnables, 400, 550);
+        addObject(spawnables, 32, 33);
+
+        Spawner spawner = new Spawner();
+        addObject(spawner, 700, 100);
+        AntHome anthome = new AntHome();
+        addObject(anthome, 730, 400);
 
         Food food = new Food();
-        addObject(food, 107, 431);
-
+        addObject(food, 100, 400);
         FoodCounter fc = new FoodCounter();
         addObject(fc, food.getX(), food.getY() + 25);
-
-        Powerbar powerbar = new Powerbar();
-        addObject(powerbar, 118, 566);
-        
-        Scoreboard sb = new Scoreboard();
-        addObject(sb, 35, 525);
-
-        AntHome anthome = new AntHome();
-        addObject(anthome, 730, 450);
-
-        Ant ant = new Ant();
-        addObject(ant, 215, 160);
     }
 }
