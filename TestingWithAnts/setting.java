@@ -26,12 +26,18 @@ public class setting extends World
      */
     public void prepare()
     {   
+        //HUD
         Hudbar hudbar = new Hudbar();
         addObject(hudbar, 400, 550);
         Powerbar powerbar = new Powerbar();
         addObject(powerbar, 120, 560);
         Scoreboard sb = new Scoreboard();
         addObject(sb, 45, 525);
+        // HUD powerups
+        Crusher_hud crusher_hud = new Crusher_hud();
+        addObject(crusher_hud, 300, 540);
+        
+        //Hidden object to spawn powerups
         Spawnables spawnables = new Spawnables();
         addObject(spawnables, 32, 33);
 
