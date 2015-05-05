@@ -1,4 +1,5 @@
 import greenfoot.*;
+import java.util.*;
 
 /**
  * Write a description of class Spawnables here.
@@ -8,6 +9,9 @@ import greenfoot.*;
  */
 public class Spawnables extends Actor
 {
+    
+    static final int crushPower = 20;
+    
     /**
      * Act - do whatever the Spawnables wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -16,9 +20,13 @@ public class Spawnables extends Actor
     {
         MouseInfo mi = Greenfoot.getMouseInfo();
         
-        //if (Greenfoot.getKey() == "c")
-        if (Greenfoot.isKeyDown("c")) {
-            Crusher crush = new Crusher();
+        setting w = (setting)getWorld();
+        List<Powerbar> powerbarList = (List<Powerbar>) w.getObjects(Powerbar.class);
+        Powerbar powerbar = powerbarList.get(0);
+        final int totalPower = powerbar.getPower();
+        
+        if (Greenfoot.isKeyDown("1") && totalPower >= crushPower) {
+            Crusher crush = new Crusher();          
             getWorld().addObject(crush, mi.getX(), mi.getY());
         }
     }    

@@ -9,16 +9,26 @@ import java.util.*;
  */
 public class Crusher extends Spawnables
 {
+    
+    static final int crushPower = 20;
+    
     /**
      * Act - do whatever the Crusher wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
-        followMouse();
+        followMouse();        
         if (Greenfoot.mouseClicked(null))
         {
+            setting w = (setting)getWorld();
+            List<Powerbar> powerbarList = (List<Powerbar>) w.getObjects(Powerbar.class);
+            Powerbar powerbar = powerbarList.get(0);
+            
             crush();
+            //This is going to be called multiple times....... we should fix it
+            System.out.println("remove power: " + crushPower);
+            powerbar.removePower(crushPower);    
         }
     }    
     
