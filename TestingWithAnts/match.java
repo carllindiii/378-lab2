@@ -11,6 +11,14 @@ public class Match extends Spawnables
     public static final int FIRE_TIME_LIMIT = 100;
     
     /**
+     * Construct the Match
+     */
+    public Match()
+    {
+        setImage(new GreenfootImage("Match stick.png"));
+    }
+    
+    /**
      * Act - do whatever the match wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */

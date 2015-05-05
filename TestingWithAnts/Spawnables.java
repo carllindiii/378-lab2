@@ -9,6 +9,14 @@ import greenfoot.*;
 public class Spawnables extends Actor
 {
     /**
+     * Construct the Spawnables
+     */
+    public Spawnables()
+    {
+        setImage(new GreenfootImage("Bottom HUD.png"));
+    }
+    
+    /**
      * Act - do whatever the Spawnables wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */

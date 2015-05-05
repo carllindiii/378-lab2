@@ -10,6 +10,15 @@ import java.util.*;
 public class Crusher extends Spawnables
 {
     /**
+     * Constructor
+     */
+    public Crusher()
+    {
+        setImage(new GreenfootImage("button-yellow.png"));
+    }
+    
+    
+    /**
      * Act - do whatever the Crusher wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */

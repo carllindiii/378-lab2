@@ -7,26 +7,25 @@ import java.util.List;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Flame extends Match
+public class Flame extends AnimatedActor
 {
     public static final int FLAME_TIME_LIMIT = 200;
-    public static final int ALTERNATE = 12;
+    public static final int ALTERNATE = 4;
     
     public int timeOnFire;
-    
-    // For the flame animation
-    public GreenfootImage flame1;
-    public GreenfootImage flame2;
-    public GreenfootImage flame3;
     /**
      * Constructor for the flame
      */
     public Flame()
     {
-        timeOnFire = FLAME_TIME_LIMIT;
-        flame1 = new GreenfootImage("button-yellow.png");
-        flame2 = new GreenfootImage("button-purple.png");
-        flame3 = new GreenfootImage("pear.png");
+        super("flame", ".png", 6);
+        timeOnFire = FLAME_TIME_LIMIT;        
+        
+        // Scale the flame images
+        for (GreenfootImage image : images)
+        {
+            image.scale(image.getWidth() - 300, image.getHeight() - 300);
+        }
     }
     
     /**
@@ -42,8 +41,13 @@ public class Flame extends Match
         }
         else
         {
-            animate(timeOnFire);
-            burn();
+            // animate the flames every ALTERNATE # of cycles
+            if (timeOnFire % ALTERNATE == 0)
+            {
+                super.act();
+            }
+            
+            burn(); // burn and remove the ants
             timeOnFire--;
         }
     }
@@ -58,27 +62,5 @@ public class Flame extends Match
         
         w.score += enemies.size();
         w.removeObjects(enemies);
-    }
-    
-    /**
-     * Animate the flame by alternating the set images
-     */
-    public void animate(int value)
-    {
-        if (value % ALTERNATE == 8)
-        {
-            setImage(flame1);
-            //setImage(new GreenfootImage("button-purple.png"));
-        }
-        else if (value % ALTERNATE == 4)
-        {
-            setImage(flame2);
-            //setImage(new GreenfootImage("button-yellow.png"));
-        }
-        else if (value % ALTERNATE == 0)
-        {
-            setImage(flame3);
-            //setImage(new GreenfootImage("pear.png"));
-        }
     }
 }
