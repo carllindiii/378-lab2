@@ -8,6 +8,8 @@ import greenfoot.*;
  */
 public class Enemy extends Actor
 {
+    public int multiplier = 2;
+    
     /**
      * Act - do whatever the Enemy wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -23,8 +25,11 @@ public class Enemy extends Actor
     private boolean mouseOnEnemy(Actor actor)
     {
         MouseInfo mouse = Greenfoot.getMouseInfo();
-        return mouse != null && mouse.getX() > actor.getX() - actor.getImage().getWidth()*2 && mouse.getX() < actor.getX() + actor.getImage().getWidth()*2 && 
-            mouse.getY() > actor.getY() - actor.getImage().getHeight()*2 && mouse.getY() < actor.getY() + actor.getImage().getHeight()*2;
+        return mouse != null && 
+            mouse.getX() > actor.getX() - actor.getImage().getWidth()*multiplier && 
+            mouse.getX() < actor.getX() + actor.getImage().getWidth()*multiplier && 
+            mouse.getY() > actor.getY() - actor.getImage().getHeight()*multiplier && 
+            mouse.getY() < actor.getY() + actor.getImage().getHeight()*multiplier;
     }
 
     /**

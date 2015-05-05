@@ -67,7 +67,7 @@ public class Ant extends Enemy
         {
             turn(180);
         }
-        if (getY() <= 5 || getY() >= getWorld().getHeight() - 5)
+        if (getY() <= 5 || getY() >= getWorld().getHeight() - 105)
         {
             turn(180);
         }

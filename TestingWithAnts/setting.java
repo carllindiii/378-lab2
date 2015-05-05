@@ -26,29 +26,27 @@ public class setting extends World
      */
     public void prepare()
     {   
-        //HUD
-        Hudbar hudbar = new Hudbar();
-        addObject(hudbar, 400, 550);
-        Powerbar powerbar = new Powerbar();
-        addObject(powerbar, 120, 560);
-        Scoreboard sb = new Scoreboard();
-        addObject(sb, 45, 525);
-        // HUD powerups
-        Crusher_hud crusher_hud = new Crusher_hud();
-        addObject(crusher_hud, 300, 540);
-        
-        //Hidden object to spawn powerups
-        Spawnables spawnables = new Spawnables();
-        addObject(spawnables, 32, 33);
-
         Spawner spawner = new Spawner();
-        addObject(spawner, 700, 100);
-        AntHome anthome = new AntHome();
-        addObject(anthome, 730, 400);
+        addObject(spawner, 663, 91);
+        Spawnables spawnables = new Spawnables();
+        addObject(spawnables, 400, 550);
 
         Food food = new Food();
-        addObject(food, 100, 400);
+        addObject(food, 107, 431);
+
         FoodCounter fc = new FoodCounter();
         addObject(fc, food.getX(), food.getY() + 25);
+
+        Powerbar powerbar = new Powerbar();
+        addObject(powerbar, 118, 566);
+        
+        Scoreboard sb = new Scoreboard();
+        addObject(sb, 35, 525);
+
+        AntHome anthome = new AntHome();
+        addObject(anthome, 730, 450);
+
+        Ant ant = new Ant();
+        addObject(ant, 215, 160);
     }
 }
