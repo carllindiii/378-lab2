@@ -1,5 +1,5 @@
 import greenfoot.*;
-import java.util.*;
+import java.util.List;
 
 /**
  * Write a description of class CrusherIcon here.
@@ -9,7 +9,7 @@ import java.util.*;
  */
 public class CrusherIcon extends Crusher
 {
-    public static final int TEMP_COST = 20;
+    public static final int TEMP_COST = 10;
     
     public GreenfootImage unavailable;
     public GreenfootImage available;
@@ -36,7 +36,7 @@ public class CrusherIcon extends Crusher
         Powerbar powerbar = powerbarList.get(0);
         final int totalPower = powerbar.getPower();
         
-        if (totalPower >= TEMP_COST)
+        if (totalPower >= CRUSHER_COST)
         {
             setImage(available);
         }

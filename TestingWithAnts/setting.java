@@ -30,7 +30,7 @@ public class setting extends World
         addObject(picnicblanket, 30, 495);
 
         Spawner spawner = new Spawner();
-        addObject(spawner, 638, 126);
+        addObject(spawner, 570, 115);
 
         Spawnables spawnables = new Spawnables();
         addObject(spawnables, 400, 550);
@@ -41,8 +41,8 @@ public class setting extends World
         FoodCounter fc = new FoodCounter();
         addObject(fc, food.getX(), food.getY() + 25);
 
-        Scoreboard power = new Scoreboard();
-        addObject(power, 55, 525);
+        Scoreboard scoreboard = new Scoreboard();
+        addObject(scoreboard, 535, 575);
 
         AntHome anthome = new AntHome();
         addObject(anthome, 730, 450);
@@ -57,9 +57,16 @@ public class setting extends World
         addObject(matchicon, 160, 576);
 
         CrusherIcon crushericon = new CrusherIcon();
-        addObject(crushericon, 160, 532);        
-        
+        addObject(crushericon, 160, 532);
+
+        TreeStump treestump = new TreeStump();
+        addObject(treestump, 567, 159);
+        treestump.setLocation(638, 126);
+
         TempWavesHUD tempwaveshud = new TempWavesHUD();
         addObject(tempwaveshud, 70, 65);
+
+        PowerScore powerscore = new PowerScore();
+        addObject(powerscore, powerbar.getX() - 5, powerbar.getY() - 35);
     }
 }

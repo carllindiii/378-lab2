@@ -10,13 +10,6 @@ public class Spawner extends Actor
 {
     public static int spawnThreshold = 80;
     public static int spawnRange = 1000;
-    
-    public Spawner() 
-    {
-        GreenfootImage image = new GreenfootImage("tree_stump.png");
-        setImage(image);
-    }
-    
     /**
      * Act - do whatever the Spawner wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -25,7 +18,7 @@ public class Spawner extends Actor
     {
         if (Greenfoot.getRandomNumber(spawnRange) < spawnThreshold)
         {
-            getWorld().addObject(new Ant(), getX() + 20, getY() - 80);
+            getWorld().addObject(new Ant(), getX(), getY());
         }
     }    
 }

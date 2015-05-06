@@ -11,6 +11,9 @@ public class Powerbar extends AnimatedActor
     protected int powerCount;
     private int currentScore; 
     
+    /**
+     * Powerbar constructor
+     */
     public Powerbar()
     {
         super("Power", ".png", 11);
@@ -20,14 +23,18 @@ public class Powerbar extends AnimatedActor
     /**
      * Fly to the left. When we hit the edge, disappear.
      */
-    public void act() {
-        setting w = (setting) getWorld();
-        if(currentScore < w.score) {
+    public void act() 
+    {
+        setting w = (setting)getWorld();
+        
+        if(currentScore < w.score) 
+        {
             powerCount += w.score - currentScore;
             currentScore = w.score;
         }
+        
         chooseImage(powerCount);
-    }   
+    }    
     
     public void chooseImage(int count) {
         currentImage = count / 20;

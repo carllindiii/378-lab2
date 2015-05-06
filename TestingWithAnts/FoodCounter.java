@@ -32,7 +32,7 @@ public class FoodCounter extends Actor
             c = 0;
         }
         
-        img = new GreenfootImage("Food Left: " + c, 20, Color.RED, null);
+        img = new GreenfootImage("Food Left: " + c, 20, Color.BLACK, null);
         setImage(img);
     }
 }
