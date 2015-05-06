@@ -26,8 +26,12 @@ public class setting extends World
      */
     public void prepare()
     {   
+        PicnicBlanket picnicblanket = new PicnicBlanket();
+        addObject(picnicblanket, 30, 495);
+
         Spawner spawner = new Spawner();
         addObject(spawner, 663, 91);
+
         Spawnables spawnables = new Spawnables();
         addObject(spawnables, 400, 550);
 
@@ -37,16 +41,22 @@ public class setting extends World
         FoodCounter fc = new FoodCounter();
         addObject(fc, food.getX(), food.getY() + 25);
 
-        Powerbar powerbar = new Powerbar();
-        addObject(powerbar, 118, 566);
-        
-        Scoreboard sb = new Scoreboard();
-        addObject(sb, 35, 525);
+        Scoreboard power = new Scoreboard();
+        addObject(power, 55, 525);
 
         AntHome anthome = new AntHome();
         addObject(anthome, 730, 450);
 
         Ant ant = new Ant();
         addObject(ant, 215, 160);
+
+        Powerbar powerbar = new Powerbar();
+        addObject(powerbar, 60, 565);
+
+        MatchIcon matchicon = new MatchIcon();
+        addObject(matchicon, 160, 576);
+
+        CrusherIcon crushericon = new CrusherIcon();
+        addObject(crushericon, 160, 532);
     }
 }

@@ -14,7 +14,7 @@ public class Crusher extends Spawnables
      */
     public Crusher()
     {
-        setImage(new GreenfootImage("button-yellow.png"));
+        setImage(new GreenfootImage("CrushingFist.png"));
     }
     
     

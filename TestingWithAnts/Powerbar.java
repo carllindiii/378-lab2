@@ -10,7 +10,7 @@ public class Powerbar extends AnimatedActor
 {
     public Powerbar()
     {
-        super("powerbar", ".png", 11);
+        super("Power", ".png", 11);
     }
     
     /**
