@@ -25,7 +25,7 @@ public class Spawner extends Actor
     {
         if (Greenfoot.getRandomNumber(spawnRange) < spawnThreshold)
         {
-            getWorld().addObject(new Ant(), getX(), getY());
+            getWorld().addObject(new Ant(), getX() + 20, getY() - 80);
         }
     }    
 }

@@ -9,7 +9,7 @@ public class Credits
     /**
      * CREDITS information
      * 
-     * 
+     * match fire animation originally from http://powstudios.com/content/fire-animation-pack-1
      * "picnic_blanket.png" originally from canstockphoto.com but edited 
      * "CrushingFist.png" originally from canstockphoto.com
      * "tree_stump_with_shadow.png" originally from canstockphoto.com but edited
