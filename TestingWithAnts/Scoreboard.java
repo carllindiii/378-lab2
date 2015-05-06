@@ -19,7 +19,7 @@ public class Scoreboard extends Actor
         setting w = (setting)getWorld();
         score = w.score;
         
-        text = new GreenfootImage("Power: " + score, 20, Color.WHITE, null);
+        text = new GreenfootImage("Kills: " + score, 20, Color.WHITE, null);
         setImage(text);
     }    
 }

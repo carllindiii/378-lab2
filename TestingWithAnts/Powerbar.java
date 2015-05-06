@@ -8,15 +8,47 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, and Greenfoot)
  */
 public class Powerbar extends AnimatedActor
 {
+    protected int powerCount;
+    private int currentScore; 
+    
     public Powerbar()
     {
         super("Power", ".png", 11);
+        powerCount = 0;
     }
     
     /**
      * Fly to the left. When we hit the edge, disappear.
      */
     public void act() {
-        //super.act();  // this takes care of the image animation     
-    }    
+        setting w = (setting) getWorld();
+        if(currentScore < w.score) {
+            powerCount += w.score - currentScore;
+            currentScore = w.score;
+        }
+        chooseImage(powerCount);
+    }   
+    
+    public void chooseImage(int count) {
+        currentImage = count / 20;
+        if(currentImage > 10) {
+            currentImage = 10;
+        }
+        setImage(images[currentImage]);   
+    }
+    
+    public void removePower(int power) {
+        powerCount -= power;     
+        if(powerCount < 0) {
+            powerCount = 0;
+        }
+    }
+    
+    public int getPower() {
+        return powerCount;
+    }  
+    
+    public void setPower(int newPowerCount) {
+        powerCount = newPowerCount;
+    }
 }

@@ -1,4 +1,5 @@
 import greenfoot.*;
+import java.util.*;
 
 /**
  * Write a description of class MatchIcon here.
@@ -8,7 +9,7 @@ import greenfoot.*;
  */
 public class MatchIcon extends Match
 {
-    public static final int TEMP_COST = 25;
+    public static final int TEMP_COST = 40;
     
     public GreenfootImage unavailable;
     public GreenfootImage available;
@@ -30,8 +31,11 @@ public class MatchIcon extends Match
     public void act() 
     {
         setting w = (setting)getWorld();
+        List<Powerbar> powerbarList = (List<Powerbar>) w.getObjects(Powerbar.class);
+        Powerbar powerbar = powerbarList.get(0);
+        final int totalPower = powerbar.getPower();
         
-        if (w.score >= TEMP_COST)
+        if (totalPower >= TEMP_COST)
         {
             setImage(available);
         }

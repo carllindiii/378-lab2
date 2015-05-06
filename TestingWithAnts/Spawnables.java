@@ -1,4 +1,5 @@
 import greenfoot.*;
+import java.util.*;
 
 /**
  * Write a description of class Spawnables here.
@@ -7,7 +8,10 @@ import greenfoot.*;
  * @version (a version number or a date)
  */
 public class Spawnables extends Actor
-{
+{    
+    static final int crushPower = 20;
+    static final int matchPower = 40;
+    
     /**
      * Construct the Spawnables
      */
@@ -23,17 +27,34 @@ public class Spawnables extends Actor
     public void act() 
     {
         MouseInfo mi = Greenfoot.getMouseInfo();
-        
-        //if (Greenfoot.getKey() == "1")
-        if (Greenfoot.isKeyDown("1"))
+        setting w = (setting)getWorld();
+        List<Powerbar> powerbarList = (List<Powerbar>) w.getObjects(Powerbar.class);
+        Powerbar powerbar = powerbarList.get(0);
+        final int totalPower = powerbar.getPower();
+
+        if (Greenfoot.isKeyDown("1") && totalPower >= crushPower)
         {
             Crusher crush = new Crusher();
             getWorld().addObject(crush, mi.getX(), mi.getY());
+            
+            //TODO: Brian fix this so it only happens once!
+            System.out.println("Used: crushPower");
+            powerbar.removePower(crushPower);
         }
-        else if (Greenfoot.isKeyDown("2"))
+        else if (Greenfoot.isKeyDown("2") && totalPower >= matchPower)
         {
             Match match = new Match();
             getWorld().addObject(match, mi.getX(), mi.getY());
+            
+            //TODO: Brian fix this so it only happens once!
+            System.out.println("Used: matchPower");
+            powerbar.removePower(matchPower);
+        }
+        
+        //cheat codes
+        if(Greenfoot.isKeyDown("=")) {
+            //set max power
+            powerbar.setPower(200);
         }
     }    
     
