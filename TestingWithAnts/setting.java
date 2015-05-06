@@ -30,7 +30,7 @@ public class setting extends World
         addObject(picnicblanket, 30, 495);
 
         Spawner spawner = new Spawner();
-        addObject(spawner, 570, 115);
+        addObject(spawner, 638, 126);
 
         Spawnables spawnables = new Spawnables();
         addObject(spawnables, 400, 550);
@@ -57,12 +57,7 @@ public class setting extends World
         addObject(matchicon, 160, 576);
 
         CrusherIcon crushericon = new CrusherIcon();
-        addObject(crushericon, 160, 532);
-
-        TreeStump treestump = new TreeStump();
-        addObject(treestump, 567, 159);
-        treestump.setLocation(638, 126);
-        
+        addObject(crushericon, 160, 532);        
         
         TempWavesHUD tempwaveshud = new TempWavesHUD();
         addObject(tempwaveshud, 70, 65);
