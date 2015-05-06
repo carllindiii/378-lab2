@@ -18,7 +18,7 @@ public class Beam extends AnimatedActor
      */
     public Beam()
     {
-        super("beam", ".png", 3);
+        super("beam", ".png", 4);
         beamTime = BEAM_TIME_LIMIT;
     }
     
