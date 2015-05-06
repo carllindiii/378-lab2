@@ -19,8 +19,7 @@ public class PowerScore extends Score
     public void act() 
     {
         setting w = (setting)getWorld();
-        List<Powerbar> powerbarList = (List<Powerbar>) w.getObjects(Powerbar.class);
-        Powerbar powerbar = powerbarList.get(0);
+        Powerbar powerbar = w.powerbar;
         
         text = new GreenfootImage("Power: " + powerbar.getPower(), 20, Color.WHITE, null);
         setImage(text);

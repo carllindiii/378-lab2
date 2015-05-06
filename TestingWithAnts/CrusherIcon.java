@@ -31,12 +31,10 @@ public class CrusherIcon extends Crusher
      */
     public void act() 
     {
-        setting w = (setting)getWorld();
-        List<Powerbar> powerbarList = (List<Powerbar>) w.getObjects(Powerbar.class);
-        Powerbar powerbar = powerbarList.get(0);
-        final int totalPower = powerbar.getPower();
+        setting w = (setting)getWorld();        
+        Powerbar powerbar = w.powerbar; // assign to state variable 'powerbar' in setting
         
-        if (totalPower >= CRUSHER_COST)
+        if (powerbar.getPower() >= CRUSHER_COST)
         {
             setImage(available);
         }

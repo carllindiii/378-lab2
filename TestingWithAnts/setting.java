@@ -8,7 +8,11 @@ import greenfoot.*;
  */
 public class setting extends World
 {   
+    /* Important variables carrying the state of the game */
     public int score;
+    public Food food;
+    public Powerbar powerbar;
+    
     /**
      * Constructor for objects of class setting.
      * 
@@ -17,7 +21,12 @@ public class setting extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 600, 1); 
+        
+        // State variables initialization
         score = 0;
+        food = new Food();
+        powerbar = new Powerbar();
+        
         prepare();
     }
     
@@ -35,7 +44,7 @@ public class setting extends World
         Spawnables spawnables = new Spawnables();
         addObject(spawnables, 400, 550);
 
-        Food food = new Food();
+        // Add food to world
         addObject(food, 107, 431);
 
         FoodCounter fc = new FoodCounter();
@@ -50,7 +59,7 @@ public class setting extends World
         Ant ant = new Ant();
         addObject(ant, 215, 160);
 
-        Powerbar powerbar = new Powerbar();
+        // Add powerbar to world
         addObject(powerbar, 60, 565);
 
         MatchIcon matchicon = new MatchIcon();

@@ -33,6 +33,7 @@ public class Match extends Spawnables
             
             w.addObject(flame, this.getX(), this.getY());
             removeSpawnable();
+            //w.removeObject(this);
         }
     }
     

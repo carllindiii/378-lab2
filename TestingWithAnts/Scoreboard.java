@@ -19,7 +19,7 @@ public class Scoreboard extends Score
         setting w = (setting)getWorld();
         score = w.score;
         
-        text = new GreenfootImage("Kills: " + score, 20, Color.WHITE, null);
+        text = new GreenfootImage("Score: " + score, 20, Color.WHITE, null);
         setImage(text);
     }    
 }

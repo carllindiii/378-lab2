@@ -31,11 +31,13 @@ public class MatchIcon extends Match
     public void act() 
     {
         setting w = (setting)getWorld();
-        List<Powerbar> powerbarList = (List<Powerbar>) w.getObjects(Powerbar.class);
+        /*List<Powerbar> powerbarList = (List<Powerbar>) w.getObjects(Powerbar.class);
         Powerbar powerbar = powerbarList.get(0);
         final int totalPower = powerbar.getPower();
+        */
+        Powerbar powerbar = w.powerbar; // assign to state variable 'powerbar' in setting
         
-        if (totalPower >= MATCH_COST)
+        if (powerbar.getPower() >= MATCH_COST)
         {
             setImage(available);
         }

@@ -41,7 +41,6 @@ public class Crusher extends Spawnables
         
         w.score += ants.size();
         w.removeObjects(ants);
-        //getWorld().removeObjects(getObjectsInRange(50, Ant.class));
         removeSpawnable();
     }
     

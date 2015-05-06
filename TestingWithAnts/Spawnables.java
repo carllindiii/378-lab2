@@ -13,7 +13,7 @@ public class Spawnables extends Actor
     public static final int CRUSHER_COST = 10;
     public static final int MATCH_COST = 25;
     public static final int BEAM_COST = 45;
-    Powerbar powerbar;
+    public Powerbar powerbar;
     
     /**
      * Construct the Spawnables
@@ -31,10 +31,10 @@ public class Spawnables extends Actor
     {
         MouseInfo mi = Greenfoot.getMouseInfo();
         setting w = (setting)getWorld();
-        List<Powerbar> powerbarList = (List<Powerbar>) w.getObjects(Powerbar.class);
-        powerbar = powerbarList.get(0);
-        
+
+        powerbar = w.powerbar; // assign to state variable 'powerbar' in setting
         final int totalPower = powerbar.getPower();
+        
         if (powerbar.usePower() == true) {
             // Press "1" for "Crusher" Scorestreak
             if (Greenfoot.isKeyDown("1") && totalPower >= CRUSHER_COST)
@@ -42,7 +42,6 @@ public class Spawnables extends Actor
                 Crusher crush = new Crusher();
                 getWorld().addObject(crush, mi.getX(), mi.getY());
                 
-                //TODO: Brian fix this so it only happens once!
                 System.out.println("Used: Crusher");
                 powerbar.removePower(CRUSHER_COST);
                 powerbar.inUse();
@@ -53,7 +52,6 @@ public class Spawnables extends Actor
                 Match match = new Match();
                 getWorld().addObject(match, mi.getX(), mi.getY());
                 
-                //TODO: Brian fix this so it only happens once!
                 System.out.println("Used: Match");
                 powerbar.removePower(MATCH_COST);
                 powerbar.inUse();
@@ -64,7 +62,6 @@ public class Spawnables extends Actor
                 Beamer beam = new Beamer();
                 getWorld().addObject(beam, mi.getX(), mi.getY());
                 
-                //TODO: Brian fix this so it only happens once!
                 System.out.println("Used: Beam");
                 powerbar.removePower(BEAM_COST);
                 powerbar.inUse();
@@ -96,8 +93,7 @@ public class Spawnables extends Actor
         setting w = (setting)getWorld();
         w.removeObject(this);
         
-        List<Powerbar> powerbarList = (List<Powerbar>) w.getObjects(Powerbar.class);
-        powerbar = powerbarList.get(0);
+        powerbar = w.powerbar;
         powerbar.freeToUse();
     }
 }
