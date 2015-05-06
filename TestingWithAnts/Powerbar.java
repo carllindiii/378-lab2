@@ -10,6 +10,7 @@ public class Powerbar extends AnimatedActor
 {
     protected int powerCount;
     private int currentScore; 
+    public boolean powerInUse;
     
     /**
      * Powerbar constructor
@@ -18,6 +19,7 @@ public class Powerbar extends AnimatedActor
     {
         super("Power", ".png", 11);
         powerCount = 0;
+        powerInUse = false;
     }
     
     /**
@@ -57,5 +59,19 @@ public class Powerbar extends AnimatedActor
     
     public void setPower(int newPowerCount) {
         powerCount = newPowerCount;
+    }
+    
+    public boolean usePower() {
+        if (powerInUse == false)
+            return true;
+        else return false;
+    }
+    
+    public void inUse() {
+        powerInUse = true;
+    }
+    
+    public void freeToUse() {
+        powerInUse = false;
     }
 }

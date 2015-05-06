@@ -30,7 +30,7 @@ public class Beamer extends Spawnables
             Beam beam = new Beam();
             
             w.addObject(beam, w.getWidth()/2, this.getY());
-            w.removeObject(this);
+            removeSpawnable();
         }
     }    
 }

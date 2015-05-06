@@ -32,7 +32,7 @@ public class Match extends Spawnables
             setting w = (setting)getWorld();
             
             w.addObject(flame, this.getX(), this.getY());
-            removeSpawnable();
+            w.removeObject(this);
         }
     }
     
