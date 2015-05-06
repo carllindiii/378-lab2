@@ -12,6 +12,8 @@ public class Credits
      * 
      * "picnic_blanket.png" originally from canstockphoto.com but edited 
      * "CrushingFist.png" originally from canstockphoto.com
+     * "tree_stump_with_shadow.png" originally from canstockphoto.com but edited
+     * "tree_stump.png" originally from canstockphoto.com but edited
      */
     
     

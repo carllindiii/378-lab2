@@ -6,7 +6,7 @@ import greenfoot.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class PicnicBlanket extends Actor
+public class PicnicBlanket extends Background
 {
     /**
      * Constructor for the picnic blanket (mainly for re-sizing)
