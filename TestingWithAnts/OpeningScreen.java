@@ -26,7 +26,7 @@ public class OpeningScreen extends World
     public void prepare() {
         //Can set background here
 
-        // Add in buttons
+        // Add in buttons: Play/Tutorial/Credits
         addObject(play, 400, 300);
         addObject(tut, 400, 400);
     }
@@ -37,7 +37,7 @@ public class OpeningScreen extends World
         }
         
         if (Greenfoot.mouseClicked(tut)) {
-            
+            Greenfoot.setWorld(new TutorialScreen());
         }
     }
 }

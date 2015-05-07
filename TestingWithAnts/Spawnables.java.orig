@@ -71,6 +71,7 @@ public class Spawnables extends Actor
                 powerbar.inUse();
                 delay = 0;
             }
+<<<<<<< Updated upstream
             // Press "4" for "Bolt Strike" Scorestreak
             else if (Greenfoot.isKeyDown("4") && totalPower >= BOLT_COST)
             {
@@ -78,19 +79,16 @@ public class Spawnables extends Actor
                 getWorld().addObject(lightning, mi.getX(), mi.getY());
                 
                 powerbar.removePower(BOLT_COST);
-                powerbar.inUse();
-                delay = 0;
-            }
+=======
             else if (Greenfoot.isKeyDown("6") && totalPower >= TIDAL_WAVE_COST) {
                 TidalWave wave = new TidalWave();
                 getWorld().addObject(wave, 0, 250);
                 
                 powerbar.removePower(TIDAL_WAVE_COST);
+>>>>>>> Stashed changes
                 powerbar.inUse();
                 delay = 0;
             }
-            
-            
         }
         // CHEAT codes for testing purposes
         if(Greenfoot.isKeyDown("=")) 

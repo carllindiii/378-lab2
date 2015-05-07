@@ -13,7 +13,8 @@ public class setting extends World
     public Food food;
     public Powerbar powerbar;
     public int level;
-    public int levelThreshold;
+    
+    public static final int levelThreshold = 200; // Value used to determine points until next wave.
     
     /**
      * Constructor for objects of class setting.
@@ -29,7 +30,6 @@ public class setting extends World
         food = new Food();
         powerbar = new Powerbar();
         level = 1;
-        levelThreshold = 200;
         
         prepare();
     }
@@ -106,6 +106,10 @@ public class setting extends World
     }
     
     public void endGame() {
-        Greenfoot.setWorld(new EndGameScreen());
+        Greenfoot.setWorld(new EndGameScreen(level, score));
+    }
+    
+    public void powerDone() {
+        powerbar.freeToUse();
     }
 }

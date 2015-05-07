@@ -35,20 +35,14 @@ public class Enemy extends Actor
     /**
      * Kill the actor and remove it from the world
      */
-    public void checkKill(Actor actor)
+    public void checkKill(Actor actor, int pointsToAdd)
     {
         if(mouseOnEnemy(actor) && Greenfoot.mouseClicked(null))
         {
             setting w = (setting)getWorld();
-            w.score += 1;
             
+            w.score += pointsToAdd;
             w.removeObject(actor);
         }
-    }
-    
-    public void killAnts() {
-        setting w = (setting)getWorld();
-        w.score += 1;
-        w.removeObject(this);
     }
 }

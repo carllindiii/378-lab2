@@ -12,6 +12,7 @@ public class Ant extends Enemy
     public static final int SPEED = 1; // ant speed
     public static final int TAKE_TIME = 30; // number of cycles (in timer) to take food
     public static final int DROP_TIME = 180; // number of cycles to drop food
+    public static final int POINT_VALUE = 1;
     
     // If Ant has food
     public boolean hasFood;
@@ -34,7 +35,7 @@ public class Ant extends Enemy
     public void act() 
     {
         walk();
-        checkKill(this);
+        checkKill(this, POINT_VALUE);
     }
     
     /**
