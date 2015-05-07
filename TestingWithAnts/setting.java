@@ -92,10 +92,14 @@ public class setting extends World
      */
     public void nextLevel() {
         // Checks whether or not the level can be changed. Prevents double stacking level increases
-        if (level * 200 <= score) {
+        if (level * level * levelThreshold <= score) {
             level++;
             TempWavesHUD nxtwave = new TempWavesHUD(level);
             addObject(nxtwave, 400, 0);
         }
+    }
+    
+    public void endGame() {
+        Greenfoot.setWorld(new EndGameScreen());
     }
 }

@@ -23,7 +23,7 @@ public class Spawner extends Actor
             w.addObject(new Ant(), getX(), getY());
         }
         
-        if (w.score > w.level * w.levelThreshold) {
+        if (w.score > w.level * w.level * w.levelThreshold) {
             w.nextLevel();
         }
     }    

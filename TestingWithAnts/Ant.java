@@ -117,7 +117,7 @@ public class Ant extends Enemy
             }
         }
         
-        if (food != null && intersects(food))
+        if (food != null && intersects(food) && hasFood == false)
         {
             takeFood(food);
         }

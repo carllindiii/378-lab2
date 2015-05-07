@@ -40,6 +40,7 @@ public class Food extends Actor
         if (count <= 0)
         {
             world.removeObject(this);
+            world.endGame();
         }
     }
     
