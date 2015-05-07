@@ -10,15 +10,21 @@ public class Spawner extends Actor
 {
     public static int spawnThreshold = 80;
     public static int spawnRange = 1000;
+   
     /**
      * Act - do whatever the Spawner wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
-        if (Greenfoot.getRandomNumber(spawnRange) < spawnThreshold)
+        setting w = (setting)getWorld();
+        if (Greenfoot.getRandomNumber(spawnRange) < (spawnThreshold * w.level))
         {
-            getWorld().addObject(new Ant(), getX(), getY());
+            w.addObject(new Ant(), getX(), getY());
+        }
+        
+        if (w.score > w.level * w.levelThreshold) {
+            w.nextLevel();
         }
     }    
 }

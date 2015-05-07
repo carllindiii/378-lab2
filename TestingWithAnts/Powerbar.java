@@ -35,6 +35,10 @@ public class Powerbar extends AnimatedActor
             currentScore = w.score;
         }
         
+        // Prevents power from going over limit
+        if (powerCount >= 200)
+            powerCount = 200;
+            
         chooseImage(powerCount);
     }    
     

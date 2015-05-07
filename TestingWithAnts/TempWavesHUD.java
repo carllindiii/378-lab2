@@ -1,4 +1,5 @@
 import greenfoot.*;
+import java.awt.Color;
 
 /**
  * Write a description of class TempWavesHUD here.
@@ -8,12 +9,30 @@ import greenfoot.*;
  */
 public class TempWavesHUD extends Background
 {
+    GreenfootImage text;
+    private int delay = 100;
+    private int delayCounter = 0;
+    
+    public TempWavesHUD(int level) {
+        setting w = (setting)getWorld();
+        text = new GreenfootImage("Wave: " + level + "!!", 50, Color.BLACK, null);
+        setImage(text);
+    }
+    
     /**
-     * Act - do whatever the TempWavesHUD wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Wave advancement is announced, drops down from top to middle of screen.
      */
     public void act() 
     {
-        // Add your action code here.
+        setting w = (setting)getWorld();
+        if (getY() == 300) {
+            delayCounter++;
+        }
+        else {
+            setLocation(getX(), getY() + 5);
+        }
+        
+        if (delayCounter == delay)
+            w.removeObject(this);
     }    
 }

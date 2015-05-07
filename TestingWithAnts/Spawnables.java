@@ -14,6 +14,7 @@ public class Spawnables extends Actor
     public static final int MATCH_COST = 25;
     public static final int BEAM_COST = 45;
     public Powerbar powerbar;
+    public int delay; // Short delay to prevent accidental spamming.
     
     /**
      * Construct the Spawnables
@@ -21,6 +22,7 @@ public class Spawnables extends Actor
     public Spawnables()
     {
         setImage(new GreenfootImage("Bottom HUD.png"));
+        delay = 0;
     }
     
     /**     
@@ -35,7 +37,7 @@ public class Spawnables extends Actor
         powerbar = w.powerbar; // assign to state variable 'powerbar' in setting
         final int totalPower = powerbar.getPower();
         
-        if (powerbar.usePower() == true) {
+        if (powerbar.usePower() == true && delay >= 40) {
             // Press "1" for "Crusher" Scorestreak
             if (Greenfoot.isKeyDown("1") && totalPower >= CRUSHER_COST)
             {
@@ -45,6 +47,7 @@ public class Spawnables extends Actor
                 System.out.println("Used: Crusher");
                 powerbar.removePower(CRUSHER_COST);
                 powerbar.inUse();
+                delay = 0;
             }
             // Press "2" for "Match" Scorestreak
             else if (Greenfoot.isKeyDown("2") && totalPower >= MATCH_COST)
@@ -55,6 +58,7 @@ public class Spawnables extends Actor
                 System.out.println("Used: Match");
                 powerbar.removePower(MATCH_COST);
                 powerbar.inUse();
+                delay = 0;
             }
             // Press "3" for "Beam" Scorestreak
             else if (Greenfoot.isKeyDown("3") && totalPower >= BEAM_COST)
@@ -65,6 +69,7 @@ public class Spawnables extends Actor
                 System.out.println("Used: Beam");
                 powerbar.removePower(BEAM_COST);
                 powerbar.inUse();
+                delay = 0;
             }
         }
         // CHEAT codes for testing purposes
@@ -73,6 +78,8 @@ public class Spawnables extends Actor
             //set max power
             powerbar.setPower(200);
         }
+        
+        delay++;
     }    
     
     /**

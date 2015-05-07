@@ -12,6 +12,8 @@ public class setting extends World
     public int score;
     public Food food;
     public Powerbar powerbar;
+    public int level;
+    public int levelThreshold;
     
     /**
      * Constructor for objects of class setting.
@@ -26,6 +28,8 @@ public class setting extends World
         score = 0;
         food = new Food();
         powerbar = new Powerbar();
+        level = 1;
+        levelThreshold = 200;
         
         prepare();
     }
@@ -72,10 +76,26 @@ public class setting extends World
         addObject(treestump, 567, 159);
         treestump.setLocation(638, 126);
 
-        TempWavesHUD tempwaveshud = new TempWavesHUD();
-        addObject(tempwaveshud, 70, 65);
-
         PowerScore powerscore = new PowerScore();
         addObject(powerscore, powerbar.getX() - 5, powerbar.getY() - 35);
+    }
+    
+    /**
+     * Returns the current level of the world -- Used for spawn rate
+     */
+    public int getLevel() {
+        return level;
+    }
+    
+    /**
+     * Advances the level
+     */
+    public void nextLevel() {
+        // Checks whether or not the level can be changed. Prevents double stacking level increases
+        if (level * 200 <= score) {
+            level++;
+            TempWavesHUD nxtwave = new TempWavesHUD(level);
+            addObject(nxtwave, 400, 0);
+        }
     }
 }
