@@ -25,7 +25,7 @@ public class OpeningScreen extends World
     
     public void prepare() {
         //Can set background here
-        
+
         // Add in buttons
         addObject(play, 400, 300);
         addObject(tut, 400, 400);
