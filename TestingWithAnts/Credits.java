@@ -15,6 +15,9 @@ public class Credits
      * "CrushingFist.png" originally from canstockphoto.com
      * "tree_stump_with_shadow.png" originally from canstockphoto.com but edited
      * "tree_stump.png" originally from canstockphoto.com but edited
+     * Facial images originally from 123rf.com but edited
+     * 
+     * EVERYTHING ELSE WAS HAND-DRAWN OR MANUALLY CREATED
      */
     
     

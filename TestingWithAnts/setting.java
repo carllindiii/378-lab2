@@ -13,7 +13,7 @@ public class setting extends World
     public Food food;
     public Powerbar powerbar;
     public int level;
-    WavesHUD wave;
+    public WavesHUD wave;
     
     public static final int levelThreshold = 200; // Value used to determine points until next wave.
     
@@ -57,7 +57,7 @@ public class setting extends World
         addObject(fc, food.getX(), food.getY() + 25);
 
         Scoreboard scoreboard = new Scoreboard();
-        addObject(scoreboard, 535, 575);
+        addObject(scoreboard, 555, 525);
 
         AntHome anthome = new AntHome();
         addObject(anthome, 730, 450);
@@ -73,7 +73,7 @@ public class setting extends World
 
         CrusherIcon crushericon = new CrusherIcon();
         addObject(crushericon, 160, 532);
-        
+
         BeamIcon beamicon = new BeamIcon();
         addObject(beamicon, 205, 532);
 
@@ -83,12 +83,12 @@ public class setting extends World
 
         PowerScore powerscore = new PowerScore();
         addObject(powerscore, powerbar.getX() - 5, powerbar.getY() - 35);
-        
+
         FacialExpression facialexpression = new FacialExpression();
         addObject(facialexpression, 750, 550);
-        
+
         // Initial Waves HUD
-        addObject(wave, 600, 550);
+        addObject(wave, 580, 575);
     }
     
     /**
@@ -104,10 +104,12 @@ public class setting extends World
     public void nextLevel() {
         // Checks whether or not the level can be changed. Prevents double stacking level increases
         if (level * level * levelThreshold <= score) {
+            int x = wave.getX();
+            int y = wave.getY();
             level++;
             removeObject(wave);
             wave = new WavesHUD(level);
-            addObject(wave, 600, 550);
+            addObject(wave, x, y);
         }
     }
     
