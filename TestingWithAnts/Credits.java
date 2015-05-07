@@ -19,7 +19,10 @@ public class Credits
     
     
     
-    
+    /**
+     * IMPORTANT NOTES
+     * - Temporarily opening screen and game over screen for developmental purposes
+     */
     
     
     // instance variables - replace the example below with your own

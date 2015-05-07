@@ -18,7 +18,7 @@ public class Spawner extends Actor
     public void act() 
     {
         setting w = (setting)getWorld();
-        if (Greenfoot.getRandomNumber(spawnRange) < (spawnThreshold * w.level))
+        if (Greenfoot.getRandomNumber(spawnRange) < (spawnThreshold /* * w.level*/))
         {
             w.addObject(new Ant(), getX(), getY());
         }
