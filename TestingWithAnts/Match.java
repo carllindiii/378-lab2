@@ -31,7 +31,7 @@ public class Match extends Spawnables
             Flame flame = new Flame();
             setting w = (setting)getWorld();
             
-            w.addObject(flame, this.getX(), this.getY());
+            w.addObject(flame, this.getX(), this.getY() - 45);
             removeSpawnable();
             //w.removeObject(this);
         }

@@ -71,6 +71,9 @@ public class setting extends World
 
         CrusherIcon crushericon = new CrusherIcon();
         addObject(crushericon, 160, 532);
+        
+        BeamIcon beamicon = new BeamIcon();
+        addObject(beamicon, 205, 532);
 
         TreeStump treestump = new TreeStump();
         addObject(treestump, 567, 159);
