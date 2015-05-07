@@ -14,7 +14,6 @@ public class TempWavesHUD extends Background
     private int delayCounter = 0;
     
     public TempWavesHUD(int level) {
-        setting w = (setting)getWorld();
         text = new GreenfootImage("Wave: " + level + "!!", 50, Color.BLACK, null);
         setImage(text);
     }
