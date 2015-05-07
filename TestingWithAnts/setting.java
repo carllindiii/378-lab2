@@ -13,6 +13,7 @@ public class setting extends World
     public Food food;
     public Powerbar powerbar;
     public int level;
+    WavesHUD wave;
     
     public static final int levelThreshold = 200; // Value used to determine points until next wave.
     
@@ -30,6 +31,7 @@ public class setting extends World
         food = new Food();
         powerbar = new Powerbar();
         level = 1;
+        wave = new WavesHUD(level);
         
         prepare();
     }
@@ -84,6 +86,9 @@ public class setting extends World
         
         FacialExpression facialexpression = new FacialExpression();
         addObject(facialexpression, 750, 550);
+        
+        // Initial Waves HUD
+        addObject(wave, 600, 550);
     }
     
     /**
@@ -100,8 +105,9 @@ public class setting extends World
         // Checks whether or not the level can be changed. Prevents double stacking level increases
         if (level * level * levelThreshold <= score) {
             level++;
-            TempWavesHUD nxtwave = new TempWavesHUD(level);
-            addObject(nxtwave, 400, 0);
+            removeObject(wave);
+            wave = new WavesHUD(level);
+            addObject(wave, 600, 550);
         }
     }
     
