@@ -44,7 +44,6 @@ public class Spawnables extends Actor
                 Crusher crush = new Crusher();
                 getWorld().addObject(crush, mi.getX(), mi.getY());
                 
-                System.out.println("Used: Crusher");
                 powerbar.removePower(CRUSHER_COST);
                 powerbar.inUse();
                 delay = 0;
@@ -55,7 +54,6 @@ public class Spawnables extends Actor
                 Match match = new Match();
                 getWorld().addObject(match, mi.getX(), mi.getY());
                 
-                System.out.println("Used: Match");
                 powerbar.removePower(MATCH_COST);
                 powerbar.inUse();
                 delay = 0;
@@ -66,7 +64,6 @@ public class Spawnables extends Actor
                 Beamer beam = new Beamer();
                 getWorld().addObject(beam, mi.getX(), mi.getY());
                 
-                System.out.println("Used: Beam");
                 powerbar.removePower(BEAM_COST);
                 powerbar.inUse();
                 delay = 0;

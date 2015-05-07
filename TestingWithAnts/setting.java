@@ -78,6 +78,9 @@ public class setting extends World
 
         PowerScore powerscore = new PowerScore();
         addObject(powerscore, powerbar.getX() - 5, powerbar.getY() - 35);
+        
+        FacialExpression facialexpression = new FacialExpression();
+        addObject(facialexpression, 750, 550);
     }
     
     /**

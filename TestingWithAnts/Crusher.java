@@ -43,17 +43,4 @@ public class Crusher extends Spawnables
         w.removeObjects(ants);
         removeSpawnable();
     }
-    
-    /**
-     * Crusher actor follows the mouse
-     * /
-    private void followMouse()
-    {
-        MouseInfo mi = Greenfoot.getMouseInfo();
-        
-        if (mi != null)
-        {
-            setLocation(mi.getX(), mi.getY());
-        }
-    } */
 }

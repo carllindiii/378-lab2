@@ -39,28 +39,4 @@ public class FoodCounter extends Actor
         img = new GreenfootImage("Food Left: " + c, 20, Color.BLACK, null);
         setImage(img);       
     }
-    
-    /*
-    public void updateImage()
-    {
-        w = ((setting)getWorld());
-        int c;
-        if (w.getObjects(Food.class).isEmpty() == false)
-        {
-            food = ((Food)w.getObjects(Food.class).get(0));
-            c = food.getCount();
-        
-            if (c <= 0)
-            {
-                w.removeObject(food);
-            }
-        }
-        else
-        {
-            c = 0;
-        }
-        
-        img = new GreenfootImage("Food Left: " + c, 20, Color.BLACK, null);
-        setImage(img);
-    }*/
 }
