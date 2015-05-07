@@ -9,6 +9,14 @@ import greenfoot.*;
 public class TreeStump extends Background
 {
     /**
+     * Constructor
+     */
+    public TreeStump()
+    {
+        setImage(new GreenfootImage("tree_stump.png"));
+    }
+    
+    /**
      * Act - do whatever the TreeStump wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */

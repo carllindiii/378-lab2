@@ -13,6 +13,7 @@ public class Spawnables extends Actor
     public static final int CRUSHER_COST = 10;
     public static final int MATCH_COST = 25;
     public static final int BEAM_COST = 45;
+    public static final int BOLT_COST = 70;
     public Powerbar powerbar;
     public int delay; // Short delay to prevent accidental spamming.
     
@@ -65,6 +66,16 @@ public class Spawnables extends Actor
                 getWorld().addObject(beam, mi.getX(), mi.getY());
                 
                 powerbar.removePower(BEAM_COST);
+                powerbar.inUse();
+                delay = 0;
+            }
+            // Press "4" for "Bolt Strike" Scorestreak
+            else if (Greenfoot.isKeyDown("4") && totalPower >= BOLT_COST)
+            {
+                Lightning lightning = new Lightning();
+                getWorld().addObject(lightning, mi.getX(), mi.getY());
+                
+                powerbar.removePower(BOLT_COST);
                 powerbar.inUse();
                 delay = 0;
             }
