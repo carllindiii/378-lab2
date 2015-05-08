@@ -17,12 +17,16 @@ public class Ant extends Enemy
     // If Ant has food
     public boolean hasFood;
     
+    // Boolean allowing the ant to move
+    public boolean canMove;
+    
     // Timers
     public int takeTimer; // when ant is trying to take food
     public int dropTimer; // when ant is dropping the food
     
     public Ant()
     {
+        canMove = true;
         hasFood = false;
         takeTimer = TAKE_TIME;
         dropTimer = DROP_TIME;
@@ -34,7 +38,10 @@ public class Ant extends Enemy
      */
     public void act() 
     {
-        walk();
+        if (canMove == true)
+        {
+            walk();
+        }
         checkKill(this, POINT_VALUE);
     }
     

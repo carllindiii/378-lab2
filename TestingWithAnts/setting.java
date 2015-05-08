@@ -15,7 +15,7 @@ public class setting extends World
     public int level;
     public WavesHUD wave;
     
-    public static final int levelThreshold = 200; // Value used to determine points until next wave.
+    public static final int levelThreshold = 20; // Value used to determine points until next wave.
     
     /**
      * Constructor for objects of class setting.
@@ -92,8 +92,8 @@ public class setting extends World
         addObject(new TempWavesHUD(level), 580, 575);
         
         // Makes sure that the pop-up for next wave is behind hudbar
-        setPaintOrder(Score.class, Powerbar.class, Protagonist.class, WavesHUD.class, 
-                      Spawnables.class, Hudbar.class, TempWavesHUD.class, setting.class); 
+        setPaintOrder(Enemy.class, Score.class, Powerbar.class, Protagonist.class, WavesHUD.class, 
+                      Spawnables.class, GluePile.class, TempWavesHUD.class, setting.class); 
     }
     
     /**
