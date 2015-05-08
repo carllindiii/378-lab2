@@ -6,7 +6,7 @@ import greenfoot.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Food extends Actor
+public class Food extends AnimatedActor
 {
     public static final int FOOD_COUNT = 35;
     
@@ -19,8 +19,15 @@ public class Food extends Actor
      */
     public Food()
     {
+        super("picnic_food", ".png", 7);
         world = (setting)getWorld();
         count = FOOD_COUNT;
+        
+        // scale it the food images
+        for(GreenfootImage img : images) 
+        {
+            img.scale(img.getWidth() - 70, img.getHeight() - 70);
+        }
     }
     
     /**
@@ -29,17 +36,20 @@ public class Food extends Actor
      */
     public void act() 
     {
-        //update();
+        update();
     }
-    
+
     /**
      * Update this object
      */
     public void update()
     {
-        if (count <= 0)
+        if(count <= 0) {
+           world.removeObject(this); 
+        }
+        else
         {
-            world.removeObject(this);
+           setImage(images[(count / 7) + 1]); 
         }
     }
     
