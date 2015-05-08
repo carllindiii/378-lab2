@@ -44,6 +44,7 @@ public class Food extends AnimatedActor
      */
     public void update()
     {
+        world = (setting)getWorld();
         if(count <= 0) {
            world.removeObject(this); 
         }
