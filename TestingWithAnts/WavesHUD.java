@@ -9,10 +9,17 @@ import greenfoot.*;
 public class WavesHUD extends Background
 {
     GreenfootImage image;
+    private int lvl; // Thinking about adding freeplay animations later
+    private int freeplay;
     
     public WavesHUD(int level) {
-        image = new GreenfootImage("wave" + level + ".png");
-        setImage(image);
+        if (level <= 5) {
+            image = new GreenfootImage("wave" + level + ".png");
+            setImage(image);
+        }
+        else {
+            setImage(new GreenfootImage("wave5.png"));
+        }
     }
     
     /**
@@ -21,6 +28,5 @@ public class WavesHUD extends Background
      */
     public void act() 
     {
-        // Add your action code here.
     }    
 }

@@ -22,7 +22,7 @@ public class Enemy extends Actor
     /**
      * Checks if the mouse is on the enemy
      */
-    private boolean mouseOnEnemy(Actor actor)
+    protected boolean mouseOnEnemy(Actor actor)
     {
         MouseInfo mouse = Greenfoot.getMouseInfo();
         return mouse != null && 
