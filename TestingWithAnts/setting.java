@@ -89,6 +89,11 @@ public class setting extends World
 
         // Initial Waves HUD
         addObject(wave, 580, 575);
+        addObject(new TempWavesHUD(level), 580, 575);
+        
+        // Makes sure that the pop-up for next wave is behind hudbar
+        setPaintOrder(Score.class, Powerbar.class, Protagonist.class, WavesHUD.class, 
+                      Spawnables.class, Hudbar.class, TempWavesHUD.class, setting.class); 
     }
     
     /**
@@ -109,7 +114,9 @@ public class setting extends World
             level++;
             removeObject(wave);
             wave = new WavesHUD(level);
+            
             addObject(wave, x, y);
+            addObject(new TempWavesHUD(level), x, y);
         }
     }
     

@@ -24,11 +24,11 @@ public class TempWavesHUD extends Background
     public void act() 
     {
         setting w = (setting)getWorld();
-        if (getY() == 300) {
+        if (getY() <= 475) {
             delayCounter++;
         }
         else {
-            setLocation(getX(), getY() + 5);
+            setLocation(getX(), getY() - 2);
         }
         
         if (delayCounter == delay)
