@@ -46,8 +46,17 @@ public class Spawner extends Actor
             if (w.getObjects(Enemy.class).size() < maxAnts) {
                 switch (w.level) {
                     case 6:
+                        // Freeplay
                     case 5:
+                        if (Greenfoot.getRandomNumber(spawnRange) < ((spawnThreshold/w.level)/3))
+                        {
+                            w.addObject(new NinjaAnt(), getX(), getY());
+                        }
                     case 4:
+                        if (Greenfoot.getRandomNumber(spawnRange) < ((spawnThreshold/w.level)/2))
+                        {
+                            w.addObject(new StealthAnt(), getX(), getY());
+                        }
                     case 3:
                         if (Greenfoot.getRandomNumber(spawnRange) < (spawnThreshold/w.level))
                         {

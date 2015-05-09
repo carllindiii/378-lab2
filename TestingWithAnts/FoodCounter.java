@@ -32,8 +32,8 @@ public class FoodCounter extends Actor
         {
             c = 0;
             
-            /* Temporarily disable game over so development doesn't get annoying
-            w.endGame(); */
+            // Temporarily disable game over so development doesn't get annoying
+            w.endGame();
         }
         
         img = new GreenfootImage("Food Left: " + c, 20, Color.BLACK, null);

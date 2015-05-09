@@ -9,9 +9,17 @@ import java.awt.Color;
  */
 public class PlayButton extends MiscButtons
 {
-    public PlayButton() {
-        GreenfootImage text = new GreenfootImage("PLAY", 75, Color.BLACK, null);
-        setImage(text);
+    public PlayButton(int type) {
+        switch (type) {
+            case 1:
+                GreenfootImage text = new GreenfootImage("PLAY", 75, Color.BLACK, null);
+                setImage(text);
+                break;
+            case 2:
+                GreenfootImage img = new GreenfootImage("PlayAgainButton.png");
+                setImage(img);
+                break;
+        }
     }
     
     /**

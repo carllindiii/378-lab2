@@ -9,7 +9,7 @@ import java.awt.Color;
  */
 public class OpeningScreen extends World
 {
-    PlayButton play = new PlayButton();
+    PlayButton play = new PlayButton(1);
     TutorialButton tut = new TutorialButton();
     
     /**

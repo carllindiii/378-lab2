@@ -17,7 +17,7 @@ public class setting extends World
     
     public static final int levelThreshold = 20; // Value used to determine points until next wave.
     
-    PlayButton play = new PlayButton();
+    PlayButton play = new PlayButton(1);
     public boolean isPaused;
     /**
      * Constructor for objects of class setting.
@@ -116,7 +116,7 @@ public class setting extends World
 
         // Initial Waves HUD
         addObject(wave, 580, 575);
-        addObject(new TempWavesHUD(level), 580, 575);
+        //addObject(new TempWavesHUD(level), 580, 575);
         
         // Makes sure that the pop-up for next wave is behind hudbar
         setPaintOrder(MiscButtons.class, Enemy.class, Score.class, Powerbar.class, FoodCounter.class, Protagonist.class, WavesHUD.class, 
@@ -136,14 +136,19 @@ public class setting extends World
     public void nextLevel() {
         // Checks whether or not the level can be changed. Prevents double stacking level increases
         if (level * level * levelThreshold <= score) {
-            int x = wave.getX();
-            int y = wave.getY();
             level++;
-            removeObject(wave);
-            wave = new WavesHUD(level);
-            
-            addObject(wave, x, y);
-            addObject(new TempWavesHUD(level), x, y);
+            if (level == 6) {
+                
+            }
+            else {
+                int x = wave.getX();
+                int y = wave.getY();
+                removeObject(wave);
+                wave = new WavesHUD(level);
+                
+                addObject(wave, x, y);
+                addObject(new TempWavesHUD(level), x, y);
+            }
         }
     }
     

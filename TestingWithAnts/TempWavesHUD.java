@@ -14,9 +14,12 @@ public class TempWavesHUD extends Background
     private int delayCounter = 0;
     private boolean exitting = false;
     
+    private static final int Y_PLACEMENT = 480;
+    
     public TempWavesHUD(int level) {
         if (level <= 5) {
             text = new GreenfootImage("NextWave.png");
+            //text = new GreenfootImage("FreePlay.png");
             setImage(text);
         }
         else {
@@ -32,7 +35,7 @@ public class TempWavesHUD extends Background
     {
         setting w = (setting)getWorld();
         if (exitting == false) {
-            if (getY() <= 485) {
+            if (getY() <= Y_PLACEMENT) {
                 delayCounter++;
             }
             else {
@@ -43,8 +46,12 @@ public class TempWavesHUD extends Background
         if (delayCounter == delay || exitting) {
             exitting = true;
             setLocation(getX(), getY() + 3);
-            if (getY() >= 525)
+            if (getY() >= 525) {
+                if (w.level == 3) {
+                    w.addObject(new FastAntWave(), getX(), Y_PLACEMENT);
+                }
                 w.removeObject(this);
+             }
         }
     }    
 }
