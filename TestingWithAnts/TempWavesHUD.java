@@ -12,14 +12,15 @@ public class TempWavesHUD extends Background
     GreenfootImage text;
     private int delay = 100;
     private int delayCounter = 0;
+    private boolean exitting = false;
     
     public TempWavesHUD(int level) {
         if (level <= 5) {
-            text = new GreenfootImage("Wave: " + level + "!!", 50, Color.BLACK, null);
+            text = new GreenfootImage("NextWave.png");
             setImage(text);
         }
         else {
-            text = new GreenfootImage("Freeplay!!", 50, Color.BLACK, null);
+            text = new GreenfootImage("FreePlay.png");
             setImage(text);
         }
     }
@@ -30,14 +31,20 @@ public class TempWavesHUD extends Background
     public void act() 
     {
         setting w = (setting)getWorld();
-        if (getY() <= 475) {
-            delayCounter++;
-        }
-        else {
-            setLocation(getX(), getY() - 2);
+        if (exitting == false) {
+            if (getY() <= 485) {
+                delayCounter++;
+            }
+            else {
+                setLocation(getX(), getY() - 3);
+            }
         }
         
-        if (delayCounter == delay)
-            w.removeObject(this);
+        if (delayCounter == delay || exitting) {
+            exitting = true;
+            setLocation(getX(), getY() + 3);
+            if (getY() >= 525)
+                w.removeObject(this);
+        }
     }    
 }

@@ -39,87 +39,89 @@ public class Spawnables extends Actor
         MouseInfo mi = Greenfoot.getMouseInfo();
         setting w = (setting)getWorld();
 
-        powerbar = w.powerbar; // assign to state variable 'powerbar' in setting
-        final int totalPower = powerbar.getPower();
-        
-        if (powerbar.usePower() == true && delay >= 40) {
-            // Press "1" for "Crusher" Scorestreak
-            if (Greenfoot.isKeyDown("1") && totalPower >= CRUSHER_COST)
+        if (w.isPaused == false) {
+            powerbar = w.powerbar; // assign to state variable 'powerbar' in setting
+            final int totalPower = powerbar.getPower();
+            
+            if (powerbar.usePower() == true && delay >= 40) {
+                // Press "1" for "Crusher" Scorestreak
+                if (Greenfoot.isKeyDown("1") && totalPower >= CRUSHER_COST)
+                {
+                    Crusher crush = new Crusher();
+                    getWorld().addObject(crush, mi.getX(), mi.getY());
+                    
+                    powerbar.removePower(CRUSHER_COST);
+                    powerbar.inUse();
+                    delay = 0;
+                }
+                // Press "2" for "Match" Scorestreak
+                else if (Greenfoot.isKeyDown("2") && totalPower >= MATCH_COST)
+                {
+                    Match match = new Match();
+                    getWorld().addObject(match, mi.getX(), mi.getY());
+                    
+                    powerbar.removePower(MATCH_COST);
+                    powerbar.inUse();
+                    delay = 0;
+                }
+                // Press "3" for "Beam" Scorestreak
+                else if (Greenfoot.isKeyDown("3") && totalPower >= BEAM_COST)
+                {
+                    Beamer beam = new Beamer();
+                    getWorld().addObject(beam, mi.getX(), mi.getY());
+                    
+                    powerbar.removePower(BEAM_COST);
+                    powerbar.inUse();
+                    delay = 0;
+                }
+                // Press "4" for "Glue" Scorestreak
+                else if (Greenfoot.isKeyDown("4") && totalPower >= GLUE_COST) {
+                    Glue glue = new Glue();
+                    getWorld().addObject(glue, mi.getX(), mi.getY());
+                    
+                    powerbar.removePower(GLUE_COST);
+                    powerbar.inUse();
+                    delay = 0;
+                }
+                // Press "5" for "Bolt Strike" Scorestreak
+                else if (Greenfoot.isKeyDown("5") && totalPower >= BOLT_COST)
+                {
+                    Lightning lightning = new Lightning();
+                    getWorld().addObject(lightning, mi.getX(), mi.getY());
+                    
+                    powerbar.removePower(BOLT_COST);
+                    powerbar.inUse();
+                    delay = 0;
+                }
+                // Press "6" for "Glue" Scorestreak
+                else if (Greenfoot.isKeyDown("6") && totalPower >= FIRE_CRACKER_COST) {
+                    FireCracker fc = new FireCracker();
+                    getWorld().addObject(fc, mi.getX(), mi.getY());
+                    
+                    powerbar.removePower(FIRE_CRACKER_COST);
+                    powerbar.inUse();
+                    delay = 0;
+                }
+                // Press "7" for "Tidal Wave" Scorestreak
+                else if (Greenfoot.isKeyDown("7") && totalPower >= TIDAL_WAVE_COST) {
+                    TidalWave wave = new TidalWave();
+                    getWorld().addObject(wave, 0, 250);
+                    
+                    powerbar.removePower(TIDAL_WAVE_COST);
+                    powerbar.inUse();
+                    delay = 0;
+                }
+            }
+            // CHEAT codes for testing purposes
+            if(Greenfoot.isKeyDown("=")) 
             {
-                Crusher crush = new Crusher();
-                getWorld().addObject(crush, mi.getX(), mi.getY());
-                
-                powerbar.removePower(CRUSHER_COST);
-                powerbar.inUse();
-                delay = 0;
+                //set max power
+                powerbar.setPower(200);
             }
-            // Press "2" for "Match" Scorestreak
-            else if (Greenfoot.isKeyDown("2") && totalPower >= MATCH_COST)
-            {
-                Match match = new Match();
-                getWorld().addObject(match, mi.getX(), mi.getY());
-                
-                powerbar.removePower(MATCH_COST);
-                powerbar.inUse();
-                delay = 0;
-            }
-            // Press "3" for "Beam" Scorestreak
-            else if (Greenfoot.isKeyDown("3") && totalPower >= BEAM_COST)
-            {
-                Beamer beam = new Beamer();
-                getWorld().addObject(beam, mi.getX(), mi.getY());
-                
-                powerbar.removePower(BEAM_COST);
-                powerbar.inUse();
-                delay = 0;
-            }
-            // Press "4" for "Glue" Scorestreak
-            else if (Greenfoot.isKeyDown("4") && totalPower >= GLUE_COST) {
-                Glue glue = new Glue();
-                getWorld().addObject(glue, mi.getX(), mi.getY());
-                
-                powerbar.removePower(GLUE_COST);
-                powerbar.inUse();
-                delay = 0;
-            }
-            // Press "5" for "Bolt Strike" Scorestreak
-            else if (Greenfoot.isKeyDown("5") && totalPower >= BOLT_COST)
-            {
-                Lightning lightning = new Lightning();
-                getWorld().addObject(lightning, mi.getX(), mi.getY());
-                
-                powerbar.removePower(BOLT_COST);
-                powerbar.inUse();
-                delay = 0;
-            }
-            // Press "6" for "Glue" Scorestreak
-            else if (Greenfoot.isKeyDown("6") && totalPower >= FIRE_CRACKER_COST) {
-                FireCracker fc = new FireCracker();
-                getWorld().addObject(fc, mi.getX(), mi.getY());
-                
-                powerbar.removePower(FIRE_CRACKER_COST);
-                powerbar.inUse();
-                delay = 0;
-            }
-            // Press "7" for "Tidal Wave" Scorestreak
-            else if (Greenfoot.isKeyDown("7") && totalPower >= TIDAL_WAVE_COST) {
-                TidalWave wave = new TidalWave();
-                getWorld().addObject(wave, 0, 250);
-                
-                powerbar.removePower(TIDAL_WAVE_COST);
-                powerbar.inUse();
-                delay = 0;
-            }
+            
+            delay++;
         }
-        // CHEAT codes for testing purposes
-        if(Greenfoot.isKeyDown("=")) 
-        {
-            //set max power
-            powerbar.setPower(200);
-        }
-        
-        delay++;
-    }    
+    }
     
     /**
      * Spawnable actor follows the mouse

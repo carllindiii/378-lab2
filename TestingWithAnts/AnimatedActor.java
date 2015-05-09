@@ -56,7 +56,7 @@ public class AnimatedActor extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() {
-        nextImage();        
+        nextImage();
     }
     
     public void nextImage() {
