@@ -40,12 +40,14 @@ public class setting extends World
     }
     
     public void act() {
-        if (Greenfoot.isKeyDown("escape")) {
+        if (Greenfoot.isKeyDown("escape") && getObjects(PauseBackground.class).isEmpty()) {
+            addObject(new PauseBackground(), 400, 300);
             addObject(play, 400, 300);
             isPaused = true;
         }
         else if (Greenfoot.mouseClicked(play)) {
             removeObject(play);
+            removeObjects(getObjects(PauseBackground.class));
             isPaused = false;
         }
     }
@@ -106,8 +108,8 @@ public class setting extends World
         addObject(new TempWavesHUD(level), 580, 575);
         
         // Makes sure that the pop-up for next wave is behind hudbar
-        setPaintOrder(Enemy.class, Score.class, Powerbar.class, Protagonist.class, WavesHUD.class, 
-                      Spawnables.class, GluePile.class, TempWavesHUD.class, setting.class); 
+        setPaintOrder(MiscButtons.class, Enemy.class, Score.class, Powerbar.class, Protagonist.class, WavesHUD.class, 
+                      AnimatedActor.class, Spawnables.class, GluePile.class, TempWavesHUD.class, setting.class); 
     }
     
     /**
