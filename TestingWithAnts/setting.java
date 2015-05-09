@@ -17,6 +17,8 @@ public class setting extends World
     
     public static final int levelThreshold = 20; // Value used to determine points until next wave.
     
+    PlayButton play = new PlayButton();
+    public boolean isPaused;
     /**
      * Constructor for objects of class setting.
      * 
@@ -32,8 +34,20 @@ public class setting extends World
         powerbar = new Powerbar();
         level = 1;
         wave = new WavesHUD(level);
+        isPaused = false;
         
         prepare();
+    }
+    
+    public void act() {
+        if (Greenfoot.isKeyDown("escape")) {
+            addObject(play, 400, 300);
+            isPaused = true;
+        }
+        else if (Greenfoot.mouseClicked(play)) {
+            removeObject(play);
+            isPaused = false;
+        }
     }
     
     /**

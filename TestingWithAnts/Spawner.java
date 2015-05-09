@@ -35,35 +35,36 @@ public class Spawner extends Actor
     public void act() 
     {
         setting w = (setting)getWorld();
-        
-        if (delay >= 50) {
-            setLocation(MIN_X + Greenfoot.getRandomNumber(RANDOM_X), 
-                        MIN_Y + Greenfoot.getRandomNumber(RANDOM_Y));
-            delay = 0;
-        }
-        delay++;
-        
-        if (w.getObjects(Enemy.class).size() < maxAnts) {
-            switch (w.level) {
-                case 6:
-                case 5:
-                case 4:
-                case 3:
-                    if (Greenfoot.getRandomNumber(spawnRange) < (spawnThreshold/w.level))
-                    {
-                        w.addObject(new FastAnt(), getX(), getY());
-                    }
-                case 2:
-                case 1:
-                    if (Greenfoot.getRandomNumber(spawnRange) < (spawnThreshold))
-                    {
-                        w.addObject(new Ant(), getX(), getY());
-                    }
-                    break;
+        if (w.isPaused == false) {
+            if (delay >= 50) {
+                setLocation(MIN_X + Greenfoot.getRandomNumber(RANDOM_X), 
+                            MIN_Y + Greenfoot.getRandomNumber(RANDOM_Y));
+                delay = 0;
             }
-        }
-        if ((w.score > (w.level * w.level * w.levelThreshold)) && w.level <= 6) {
-            w.nextLevel();
+            delay++;
+            
+            if (w.getObjects(Enemy.class).size() < maxAnts) {
+                switch (w.level) {
+                    case 6:
+                    case 5:
+                    case 4:
+                    case 3:
+                        if (Greenfoot.getRandomNumber(spawnRange) < (spawnThreshold/w.level))
+                        {
+                            w.addObject(new FastAnt(), getX(), getY());
+                        }
+                    case 2:
+                    case 1:
+                        if (Greenfoot.getRandomNumber(spawnRange) < (spawnThreshold))
+                        {
+                            w.addObject(new Ant(), getX(), getY());
+                        }
+                        break;
+                }
+            }
+            if ((w.score > (w.level * w.level * w.levelThreshold)) && w.level <= 5) {
+                w.nextLevel();
+            }
         }
     }    
 }

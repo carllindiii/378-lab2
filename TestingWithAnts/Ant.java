@@ -39,11 +39,14 @@ public class Ant extends Enemy
      */
     public void act() 
     {
-        if (canMove == true)
-        {
-            walk();
+        setting w = (setting)getWorld();
+        if (w.isPaused == false) {
+            if (canMove == true)
+            {
+                walk();
+            }
+            checkKill(this, POINT_VALUE);
         }
-        checkKill(this, POINT_VALUE);
     }
     
     /**
