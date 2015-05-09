@@ -39,6 +39,9 @@ public class Crusher extends Spawnables
         List ants = getIntersectingObjects(Enemy.class);
         setting w = (setting)getWorld();
         
+        // Play sound effect of fist slamming into the grassy ground
+        Greenfoot.playSound("fistCrushGrass.mp3");
+        
         w.score += ants.size();
         w.removeObjects(ants);
         removeSpawnable();

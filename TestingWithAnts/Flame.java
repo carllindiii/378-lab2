@@ -13,6 +13,7 @@ public class Flame extends AnimatedActor
     public static final int ALTERNATE = 4;
     
     public int timeOnFire;
+    public GreenfootSound flameSound;
     /**
      * Constructor for the flame
      */
@@ -20,6 +21,9 @@ public class Flame extends AnimatedActor
     {
         super("Flame", ".png", 6);
         timeOnFire = FLAME_TIME_LIMIT;        
+        
+        flameSound = new GreenfootSound("flames.mp3");
+        flameSound.play(); // Start playing the sound effect as soon as this is created
         
         // Scale the flame images
         for (GreenfootImage image : images)
@@ -37,6 +41,7 @@ public class Flame extends AnimatedActor
         setting w = (setting)getWorld();
         if (timeOnFire <= 0)
         {
+            flameSound.stop(); // Stop the flame sound effect
             w.removeObject(this);
         }
         else

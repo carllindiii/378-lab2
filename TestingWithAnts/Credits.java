@@ -20,6 +20,8 @@ public class Credits
      * Facial images originally from 123rf.com but edited
      * "FreePlay" text from Sims (the game)
      * 
+     * Sounds originally from Freesounds.org
+     * 
      * EVERYTHING ELSE WAS HAND-DRAWN OR MANUALLY CREATED
      */
     

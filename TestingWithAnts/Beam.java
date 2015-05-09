@@ -12,6 +12,7 @@ public class Beam extends AnimatedActor
     public static final int BEAM_TIME_LIMIT = 350;
     public static final int ALTERNATE = 4;
     
+    public GreenfootSound beamSound;
     public int beamTime;
     /**
      * Beam Constructor
@@ -20,6 +21,8 @@ public class Beam extends AnimatedActor
     {
         super("beam", ".png", 4);
         beamTime = BEAM_TIME_LIMIT;
+        
+        beamSound = new GreenfootSound("tractorBeam.mp3");
     }
     
     /**
@@ -32,10 +35,17 @@ public class Beam extends AnimatedActor
         
         if (beamTime <= 0)
         {
+            beamSound.stop(); // Stop the sound effect
             w.removeObject(this);
         }
         else
         {
+            // Play beamSound if it's not being played (should repeat)
+            if (beamSound.isPlaying() == false)
+            {
+                beamSound.play();
+            }
+            
             // animate the beam every ALTERNATE cycles
             if (beamTime % ALTERNATE == 0)
             {

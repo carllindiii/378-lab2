@@ -7,7 +7,7 @@ import greenfoot.*;
  * @version (a version number or a date)
  */
 public class Glue extends Spawnables
-{
+{    
     /**
      * Constructor
      */
@@ -28,6 +28,9 @@ public class Glue extends Spawnables
         {
             setting w = (setting)getWorld();
             GluePile gp = new GluePile();
+            
+            // Play glue splattering on the ground sound effect
+            Greenfoot.playSound("glueSplat.mp3");
             
             w.addObject(gp, this.getX(), this.getY());
             removeSpawnable();

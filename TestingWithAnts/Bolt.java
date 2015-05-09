@@ -51,6 +51,12 @@ public class Bolt extends AnimatedActor
         }
         else
         {
+            // Play bolt sound effect once per animation cycle
+            if (boltTime % CYCLE == CYCLE - 1)
+            {
+                Greenfoot.playSound("boltStrike2.mp3");
+            }
+            
             // Animate the bolt every ALTERNATE method calls
             if (boltTime % ALTERNATE == 0 && (boltTime % CYCLE) >= DELAY)
             {
