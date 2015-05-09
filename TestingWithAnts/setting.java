@@ -84,6 +84,8 @@ public class setting extends World
         // Add powerbar to world
         addObject(powerbar, 60, 565);
 
+        
+        /* Adding all Scorestreak Icons to the HUD */
         MatchIcon matchicon = new MatchIcon();
         addObject(matchicon, 160, 576);
 
@@ -92,6 +94,15 @@ public class setting extends World
 
         BeamIcon beamicon = new BeamIcon();
         addObject(beamicon, 205, 532);
+        
+        GlueIcon glueicon = new GlueIcon();
+        addObject(glueicon, 205, 576);
+        
+        BoltIcon bolticon = new BoltIcon();
+        addObject(bolticon, 250, 532);
+        
+        
+        
 
         TreeStump treestump = new TreeStump();
         addObject(treestump, 567, 159);

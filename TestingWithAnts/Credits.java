@@ -9,13 +9,16 @@ public class Credits
     /**
      * CREDITS information
      * 
-     * 
-     * fire animations originally from http://powstudios.com/content/fire-animation-pack-1
+     * Spark animations originally from PowStudios
+     * Bolt animations originally from PowStudios
+     * Flame animations originally from PowStudios
      * "picnic_blanket.png" originally from canstockphoto.com but edited 
      * "CrushingFist.png" originally from canstockphoto.com
      * "tree_stump_with_shadow.png" originally from canstockphoto.com but edited
      * "tree_stump.png" originally from canstockphoto.com but edited
+     * Glue bottle in "GlueBottle.png" originally from coghillcartooning.com but edited
      * Facial images originally from 123rf.com but edited
+     * "FreePlay" text from Sims (the game)
      * 
      * EVERYTHING ELSE WAS HAND-DRAWN OR MANUALLY CREATED
      */

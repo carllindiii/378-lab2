@@ -14,7 +14,7 @@ public class Lightning extends Spawnables
      */
     public Lightning()
     {
-        setImage(new GreenfootImage("button-purple.png"));
+        setImage(new GreenfootImage("LightningRodsLarge.png"));
     }
     
     /**

@@ -13,7 +13,7 @@ public class Glue extends Spawnables
      */
     public Glue()
     {
-        setImage(new GreenfootImage("button-purple.png"));
+        setImage(new GreenfootImage("GlueBottle.png"));
     }
     
     /**
