@@ -70,7 +70,7 @@ public class setting extends World
         addObject(food, 107, 431);
 
         FoodCounter fc = new FoodCounter();
-        addObject(fc, food.getX(), food.getY() + 25);
+        addObject(fc, food.getX(), food.getY() + 50);
 
         Scoreboard scoreboard = new Scoreboard();
         addObject(scoreboard, 555, 525);
@@ -108,8 +108,8 @@ public class setting extends World
         addObject(new TempWavesHUD(level), 580, 575);
         
         // Makes sure that the pop-up for next wave is behind hudbar
-        setPaintOrder(MiscButtons.class, Enemy.class, Score.class, Powerbar.class, Protagonist.class, WavesHUD.class, 
-                      AnimatedActor.class, Spawnables.class, GluePile.class, TempWavesHUD.class, setting.class); 
+        setPaintOrder(MiscButtons.class, Enemy.class, Score.class, Powerbar.class, FoodCounter.class, Protagonist.class, WavesHUD.class, 
+                      AnimatedActor.class, Spawnables.class, Food.class, GluePile.class, TempWavesHUD.class, setting.class); 
     }
     
     /**

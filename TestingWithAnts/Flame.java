@@ -18,7 +18,7 @@ public class Flame extends AnimatedActor
      */
     public Flame()
     {
-        super("flame", ".png", 6);
+        super("Flame", ".png", 6);
         timeOnFire = FLAME_TIME_LIMIT;        
         
         // Scale the flame images
