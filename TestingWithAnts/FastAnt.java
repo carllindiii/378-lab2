@@ -11,6 +11,8 @@ public class FastAnt extends Ant
     public FastAnt() {
        super();
        SPEED = 2;
+       GreenfootImage img = new GreenfootImage("FastAnt.png");
+       setImage(img);
     }
     
     /**
