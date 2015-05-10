@@ -18,8 +18,6 @@ public class Credits
      * "tree_stump.png" originally from canstockphoto.com but edited
      * Glue bottle in "GlueBottle.png" originally from coghillcartooning.com but edited
      * Facial images originally from 123rf.com but edited
-     * GameOver Plate originally from pd4pic.com but edited
-     * 
      * Sounds originally from Freesounds.org
      * 
      * EVERYTHING ELSE WAS HAND-DRAWN OR MANUALLY CREATED

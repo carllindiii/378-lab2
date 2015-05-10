@@ -1,0 +1,13 @@
+diff a/TestingWithAnts/Credits.java b/TestingWithAnts/Credits.java	(rejected hunks)
+@@ -18,7 +18,11 @@
+       * "tree_stump.png" originally from canstockphoto.com but edited
+       * Glue bottle in "GlueBottle.png" originally from coghillcartooning.com but edited
+       * Facial images originally from 123rf.com but edited
+++<<<<<<< Updated upstream
+ +     * GameOver Plate originally from pd4pic.com but edited
+++=======
++      * 
+++>>>>>>> Stashed changes
+       * 
+       * Sounds originally from Freesounds.org
+       * 

@@ -42,6 +42,7 @@ public class Spark extends AnimatedActor
             // Zap all intersecting enemies ONCE
             if (sparkTime == CYCLE - 1) // should only get called ONCE
             {
+                Greenfoot.playSound("loudPop.mp3"); // play the loud popping sound once
                 zap();
             }
             
