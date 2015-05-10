@@ -57,34 +57,38 @@ public class setting extends World
      */
     public void prepare()
     {   
+        /* World Background SETUP */
         PicnicBlanket picnicblanket = new PicnicBlanket();
         addObject(picnicblanket, 30, 495);
 
         Spawner spawner = new Spawner();
         addObject(spawner, 570, 115);
 
+        TreeStump treestump = new TreeStump();
+        addObject(treestump, 567, 159);
+        treestump.setLocation(638, 126);
+
+        AntHome anthome = new AntHome();
+        addObject(anthome, 750, 210);        
+
+        /* HUD SETUP */
         Spawnables spawnables = new Spawnables();
         addObject(spawnables, 400, 550);
 
-        // Add food to world
-        addObject(food, 107, 431);
-
-        FoodCounter fc = new FoodCounter();
-        addObject(fc, food.getX(), food.getY() + 50);
-
         Scoreboard scoreboard = new Scoreboard();
-        addObject(scoreboard, 555, 525);
+        addObject(scoreboard, 600, 525);
 
-        AntHome anthome = new AntHome();
-        addObject(anthome, 730, 450);
+        addObject(powerbar, 60, 565); // Add powerbar to world
 
-        Ant ant = new Ant();
-        addObject(ant, 215, 160);
+        addObject(wave, 600, 575); // Initial Waves HUD
+        //addObject(new TempWavesHUD(level), 580, 575);
 
-        // Add powerbar to world
-        addObject(powerbar, 60, 565);
+        PowerScore powerscore = new PowerScore();
+        addObject(powerscore, powerbar.getX() - 5, powerbar.getY() - 35);
 
-        
+        FacialExpression facialexpression = new FacialExpression();
+        addObject(facialexpression, 400, 550);
+
         /* Adding all Scorestreak Icons to the HUD */
         MatchIcon matchicon = new MatchIcon();
         addObject(matchicon, 160, 576);
@@ -94,33 +98,29 @@ public class setting extends World
 
         BeamIcon beamicon = new BeamIcon();
         addObject(beamicon, 205, 532);
-        
+
         GlueIcon glueicon = new GlueIcon();
         addObject(glueicon, 205, 576);
-        
+
         BoltIcon bolticon = new BoltIcon();
         addObject(bolticon, 250, 532);
-        
-        
-        
 
-        TreeStump treestump = new TreeStump();
-        addObject(treestump, 567, 159);
-        treestump.setLocation(638, 126);
+        FireCrackerIcon firecrackericon = new FireCrackerIcon();
+        addObject(firecrackericon, 250, 576);
 
-        PowerScore powerscore = new PowerScore();
-        addObject(powerscore, powerbar.getX() - 5, powerbar.getY() - 35);
+        TidalWaveIcon tidalwaveicon = new TidalWaveIcon();
+        addObject(tidalwaveicon, 295, 532);
 
-        FacialExpression facialexpression = new FacialExpression();
-        addObject(facialexpression, 750, 550);
-
-        // Initial Waves HUD
-        addObject(wave, 580, 575);
-        //addObject(new TempWavesHUD(level), 580, 575);
         
+        /* Food SETUP */
+        addObject(food, 107, 431); // Add food to world
+
+        FoodCounter fc = new FoodCounter();
+        addObject(fc, food.getX(), food.getY() + 50);
+
         // Makes sure that the pop-up for next wave is behind hudbar
         setPaintOrder(MiscButtons.class, Enemy.class, Score.class, Powerbar.class, FoodCounter.class, Protagonist.class, WavesHUD.class, 
-                      AnimatedActor.class, Spawnables.class, Food.class, GluePile.class, TempWavesHUD.class, setting.class); 
+            AnimatedActor.class, Spawnables.class, Food.class, GluePile.class, TempWavesHUD.class, setting.class); 
     }
     
     /**

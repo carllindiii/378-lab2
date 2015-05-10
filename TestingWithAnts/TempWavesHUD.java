@@ -18,7 +18,7 @@ public class TempWavesHUD extends Background
     
     public TempWavesHUD(int level) {
         if (level <= 5) {
-            text = new GreenfootImage("NextWave.png");
+            text = new GreenfootImage("NextWaveText.png");
             //text = new GreenfootImage("FreePlay.png");
             setImage(text);
         }

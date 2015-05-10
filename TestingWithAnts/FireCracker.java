@@ -20,7 +20,7 @@ public class FireCracker extends Spawnables
      */
     public FireCracker()
     {
-        setImage(new GreenfootImage("button-purple.png"));
+        setImage(new GreenfootImage("FireCrackers.png"));
         totalSparks = Greenfoot.getRandomNumber(4) + MIN_SPARKS;
         sparks = new LinkedList<Spark>();
     }
