@@ -37,7 +37,7 @@ public class OpeningScreen extends World
         addObject(play, 400, 400);
         addObject(tut, 400, 500);
         
-        //introSong.play();
+        introSong.playLoop();
     }
     
     public void act() {
@@ -48,7 +48,7 @@ public class OpeningScreen extends World
         
         if (Greenfoot.mouseClicked(tut)) {
             stopSong();
-            Greenfoot.setWorld(new TutorialScreen());
+            Greenfoot.setWorld(new TutorialScreen(1));
         }
     }
     

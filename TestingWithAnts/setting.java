@@ -14,10 +14,12 @@ public class setting extends World
     public Powerbar powerbar;
     public int level;
     public WavesHUD wave;
+    public boolean winGame;
     
     public static final int levelThreshold = 20; // Value used to determine points until next wave.
     
-    PlayButton play = new PlayButton(1);
+    PlayButton play = new PlayButton(3);
+    MenuButton menu = new MenuButton();
     public boolean isPaused;
     
     /* All Music for each wave */
@@ -26,6 +28,7 @@ public class setting extends World
     public GreenfootSound wave3Song;
     public GreenfootSound wave4Song;
     public GreenfootSound wave5Song;
+    public GreenfootSound winSong;
     /**
      * Constructor for objects of class setting.
      * 
@@ -42,6 +45,7 @@ public class setting extends World
         level = 1;
         wave = new WavesHUD(level);
         isPaused = false;
+        winGame = false;
         
         /* Initializing all the music for each wave */
         wave1Song = new GreenfootSound("wave1Music_Track16.mp3");
@@ -54,6 +58,8 @@ public class setting extends World
         wave4Song.setVolume(50);
         wave5Song = new GreenfootSound("wave5Music_Dont_Look_Down.mp3");
         wave5Song.setVolume(40);
+        winSong = new GreenfootSound("Evening Melodrama_WinningScreen.mp3");
+        winSong.setVolume(50);
         
         prepare();
     }
@@ -63,9 +69,36 @@ public class setting extends World
      */
     public void act() 
     {
-        checkPauseGame();
-        
-        checkMusic();
+        if (winGame == false) {
+            checkPauseGame();
+            checkMusic();
+        }
+        else {
+            // The game is currently in the Game Win Screen.
+            if (Greenfoot.mouseClicked(play)) {
+                // Enter into freeplay mode.
+                isPaused = false;
+                winGame = false;
+                
+                removeObjects(getObjects(WinningScreen.class));
+                removeObjects(getObjects(PlayButton.class));
+                removeObjects(getObjects(MenuButton.class));
+                
+                winSong.stop();
+            }
+            // Return to Main Menu
+            if (Greenfoot.mouseClicked(menu)) {
+                isPaused = false;
+                winGame = false;
+                
+                removeObjects(getObjects(WinningScreen.class));
+                removeObjects(getObjects(PlayButton.class));
+                removeObjects(getObjects(MenuButton.class));
+                
+                winSong.stop();
+                Greenfoot.setWorld(new OpeningScreen());
+            }
+        }
     }
     
     /**
@@ -135,7 +168,7 @@ public class setting extends World
         addObject(fc, food.getX(), food.getY() + 50);
 
         // Makes sure that the pop-up for next wave is behind hudbar
-        setPaintOrder(MiscButtons.class, Score.class, Powerbar.class, FoodCounter.class, Protagonist.class, WavesHUD.class, 
+        setPaintOrder(MiscButtons.class, WinningScreen.class, MiscButtons.class, Score.class, Powerbar.class, FoodCounter.class, Protagonist.class, WavesHUD.class, 
             AnimatedActor.class, Spawnables.class, TidalWaveOverlay.class, Enemy.class, Food.class, GluePile.class, TempWavesHUD.class, setting.class); 
     }
     
@@ -146,13 +179,27 @@ public class setting extends World
     {
         if (Greenfoot.isKeyDown("escape") && getObjects(PauseBackground.class).isEmpty()) {
             addObject(new PauseBackground(), 400, 300);
-            addObject(play, 400, 300);
+            addObject(play, 400, 250);
+            addObject(menu, 400, 350);
+            
             isPaused = true;
         }
         else if (Greenfoot.mouseClicked(play)) {
             removeObject(play);
+            removeObject(menu);
             removeObjects(getObjects(PauseBackground.class));
             isPaused = false;
+        }
+        else if (Greenfoot.mouseClicked(menu)) {
+            removeObject(play);
+            removeObject(menu);
+            removeObjects(getObjects(PauseBackground.class));
+            isPaused = false;
+            
+            // Stop Music when returning to main menu
+            stopMusic();
+            level = 0; // Makes sure that CheckMusic doesn't run again in background.
+            Greenfoot.setWorld(new OpeningScreen());
         }
     }
     
@@ -163,35 +210,35 @@ public class setting extends World
     {
         if (level == 1 && wave1Song.isPlaying() == false)
         {
-            wave1Song.play();
+            wave1Song.playLoop();
         }
         else if (level == 2 && wave2Song.isPlaying() == false)
         {
             // stop the last song which should be from wave 1
             stopMusic();
             
-            wave2Song.play();
+            wave2Song.playLoop();
         }
         else if (level == 3 && wave3Song.isPlaying() == false)
         {
             // stop the last song which should be from wave 2
             stopMusic();
             
-            wave3Song.play();
+            wave3Song.playLoop();
         }
         else if (level == 4 && wave4Song.isPlaying() == false)
         {
             // stop the last song which should be from wave 3
             stopMusic();
             
-            wave4Song.play();
+            wave4Song.playLoop();
         }
-        else if (level == 5 && wave5Song.isPlaying() == false)
+        else if (level >= 5 && wave5Song.isPlaying() == false)
         {
             // stop the last song which should be from wave 4
             stopMusic();
             
-            wave5Song.play();
+            wave5Song.playLoop();
         }
     }
     
@@ -236,8 +283,9 @@ public class setting extends World
         // Checks whether or not the level can be changed. Prevents double stacking level increases
         if (level * level * levelThreshold <= score) {
             level++;
-            if (level == 6) {
-                
+            if (level >= 6) {
+                if (winGame == false)
+                    winGame();
             }
             else {
                 int x = wave.getX();
@@ -249,6 +297,30 @@ public class setting extends World
                 addObject(new TempWavesHUD(level), x, y);
             }
         }
+    }
+    
+    public void winGame() {
+        // Pause game, remove any ongoing powerups.
+        isPaused = true;
+        removeObjects(getObjects(Flame.class));
+        removeObjects(getObjects(Bolt.class));
+        removeObjects(getObjects(TidalWave.class));
+        removeObjects(getObjects(Beam.class));
+        removeObjects(getObjects(Spark.class));
+        powerDone();
+        
+        // Display winning screen along with other buttons.
+        WinningScreen win = new WinningScreen();
+        addObject(win, 400, 300);
+        
+        play = new PlayButton(4);
+        menu = new MenuButton();
+        addObject(play, 650, 525);
+        addObject(menu, 150, 525);
+        stopMusic();
+        winSong.playLoop();
+        
+        winGame = true;
     }
     
     public void endGame() { 
