@@ -8,13 +8,23 @@ import greenfoot.*;
  */
 public class FastAntWave extends Background
 {
-    private static final int TIME_ON_SCREEN = 300;
+    private static final int TIME_ON_SCREEN = 500;
     private int delay;
     private boolean transparent;
     GreenfootImage img;
     
-    public FastAntWave() {
-        img = new GreenfootImage("FastAntWave.png");
+    public FastAntWave(int antType) {
+        switch (antType) {
+            case 1:
+                img = new GreenfootImage("FastAntWave.png");
+                break;
+            case 2:
+                img = new GreenfootImage("StealthAntWave.png");
+                break;
+            case 3:
+                img = new GreenfootImage("NinjaAntWave.png");
+                break;
+        }
         setImage(img);
         delay = 0;
         transparent = false;
@@ -28,7 +38,7 @@ public class FastAntWave extends Background
     {
         setting w = (setting)getWorld();
         
-        if (delay % 50 == 0 && delay != 0) {
+        if (delay % 25 == 0 && delay != 0) {
             if (!transparent) {
                 img.setTransparency(0);
                 transparent = true;

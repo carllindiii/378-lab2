@@ -47,8 +47,16 @@ public class TempWavesHUD extends Background
             exitting = true;
             setLocation(getX(), getY() + 3);
             if (getY() >= 525) {
-                if (w.level == 3) {
-                    w.addObject(new FastAntWave(), getX(), Y_PLACEMENT);
+                switch (w.level) {
+                    case 3:
+                        w.addObject(new FastAntWave(1), getX(), Y_PLACEMENT);
+                        break;
+                    case 4:
+                        w.addObject(new FastAntWave(2), getX(), Y_PLACEMENT);
+                        break;
+                    case 5:
+                        w.addObject(new FastAntWave(3), getX(), Y_PLACEMENT);
+                        break;
                 }
                 w.removeObject(this);
              }
