@@ -9,7 +9,7 @@ import greenfoot.*;
 public class WavesHUD extends Background
 {
     GreenfootImage image;
-    private int lvl; // Thinking about adding freeplay animations later
+    public int lvl; // Thinking about adding freeplay animations later
     private int freeplay;
     
     public WavesHUD(int level) {

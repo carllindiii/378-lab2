@@ -109,6 +109,9 @@ public class Spawnables extends Actor
                     getWorld().addObject(wave, 0, 250);
                     getWorld().addObject(overlay, 0, 200);
                     
+                    // Immediately play the tidal wave sound effect once this is actived
+                    Greenfoot.playSound("tidalWaveBest.mp3");
+                    
                     powerbar.removePower(TIDAL_WAVE_COST);
                     powerbar.inUse();
                     delay = 0;

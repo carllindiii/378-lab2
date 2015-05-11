@@ -26,9 +26,11 @@ public class TidalWaveOverlay extends TidalWave
      */
     public void act() 
     {
-        if (getX() == 798)
+        setting w = (setting)getWorld();
+        
+        if (getX() >= w.getWidth() - 2)
         {
-            ((setting)getWorld()).removeObject(this);
+            w.removeObject(this);
         }
         else
         {

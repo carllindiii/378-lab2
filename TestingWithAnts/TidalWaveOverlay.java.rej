@@ -1,0 +1,10 @@
+diff a/TestingWithAnts/TidalWaveOverlay.java b/TestingWithAnts/TidalWaveOverlay.java	(rejected hunks)
+@@ -26,7 +26,7 @@
+      */
+     public void act() 
+     {
+-        if (followThis == null)
++        if (getX() == 798)
+         {
+             ((setting)getWorld()).removeObject(this);
+         }

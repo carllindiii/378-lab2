@@ -11,7 +11,6 @@ public class TidalWave extends AnimatedActor
 {
     public static double DROWN_RATE = 50;
     
-    public GreenfootSound tidalWaveSound;
     public TidalWaveOverlay tidalWave;
     public TidalWave() {
         super("TidalWave", ".png", 1);
@@ -20,13 +19,9 @@ public class TidalWave extends AnimatedActor
         tidalWave = new TidalWaveOverlay(this);
         ((setting)getWorld()).addObject(tidalWave, this.getX(), this.getY()); */
         
-        // Setup and Immediately play the tidal wave sound effect
-        tidalWaveSound = new GreenfootSound("tidalWaveBest.mp3");
-        tidalWaveSound.play();
-        
         // Setting transparency of the wave. 0 for invisible
         for (GreenfootImage image : images) {
-            image.setTransparency(50);
+            image.setTransparency(10);
         }
     }
     

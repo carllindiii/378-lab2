@@ -39,17 +39,12 @@ public class setting extends World
         prepare();
     }
     
-    public void act() {
-        if (Greenfoot.isKeyDown("escape") && getObjects(PauseBackground.class).isEmpty()) {
-            addObject(new PauseBackground(), 400, 300);
-            addObject(play, 400, 300);
-            isPaused = true;
-        }
-        else if (Greenfoot.mouseClicked(play)) {
-            removeObject(play);
-            removeObjects(getObjects(PauseBackground.class));
-            isPaused = false;
-        }
+    /**
+     * Act Method 
+     */
+    public void act() 
+    {
+        checkPauseGame();
     }
     
     /**
@@ -119,8 +114,25 @@ public class setting extends World
         addObject(fc, food.getX(), food.getY() + 50);
 
         // Makes sure that the pop-up for next wave is behind hudbar
-        setPaintOrder(MiscButtons.class, Enemy.class, Score.class, Powerbar.class, FoodCounter.class, Protagonist.class, WavesHUD.class, 
-            AnimatedActor.class, Spawnables.class, Food.class, GluePile.class, TempWavesHUD.class, setting.class); 
+        setPaintOrder(MiscButtons.class, Score.class, Powerbar.class, FoodCounter.class, Protagonist.class, WavesHUD.class, 
+            AnimatedActor.class, Spawnables.class, TidalWaveOverlay.class, Enemy.class, Food.class, GluePile.class, TempWavesHUD.class, setting.class); 
+    }
+    
+    /**
+     * Check to see if the game should be paused
+     */
+    public void checkPauseGame()
+    {
+        if (Greenfoot.isKeyDown("escape") && getObjects(PauseBackground.class).isEmpty()) {
+            addObject(new PauseBackground(), 400, 300);
+            addObject(play, 400, 300);
+            isPaused = true;
+        }
+        else if (Greenfoot.mouseClicked(play)) {
+            removeObject(play);
+            removeObjects(getObjects(PauseBackground.class));
+            isPaused = false;
+        }
     }
     
     /**
@@ -152,7 +164,7 @@ public class setting extends World
         }
     }
     
-    public void endGame() {
+    public void endGame() {        
         Greenfoot.setWorld(new EndGameScreen(level, score));
     }
     

@@ -9,6 +9,8 @@ public class Credits
     /**
      * CREDITS information
      * 
+     * 
+     * =[ ART ]= 
      * Spark animations originally from PowStudios
      * Bolt animations originally from PowStudios
      * Flame animations originally from PowStudios
@@ -18,16 +20,56 @@ public class Credits
      * "tree_stump.png" originally from canstockphoto.com but edited
      * Glue bottle in "GlueBottle.png" originally from coghillcartooning.com but edited
      * Facial images originally from 123rf.com but edited
-     * Sounds originally from Freesounds.org
      * 
      * EVERYTHING ELSE WAS HAND-DRAWN OR MANUALLY CREATED
+     * 
+     * 
+     * =[ SOUND FX ]=
+     * Sounds originally from Freesounds.org
+     * 
+     * 
+     * =[ MUSIC ]=
+     * Music from Kevin MacLeod (Incompetech.com)
+     * Music from Approaching Nirvana (Artist)
+     * Music from Laszlo (Artist)
+     * Music from High-Impact Sound Effects (high-impact-sound-effects)
      */
     
     
     
     /**
      * IMPORTANT NOTES
-     * - Temporarily opening screen and game over screen for developmental purposes
+     * - Temporarily disabled opening screen and game over screen for developmental purposes
+     */
+    
+    
+    /**
+     * SOUNDTRACK SETUP
+     * 
+     * Main Menu Screen:
+     * - Kevin MacLeod - Overcast
+     * 
+     * Wave 1:
+     * - High-Impact Sound Effects - Track 16 (uniquetracks.com)
+     * 
+     * Wave 2:
+     * - Kevin MacLeod - Hyperfun
+     * 
+     * Wave 3:
+     * - Kevin MacLeod - Life of Riley
+     * 
+     * Wave 4:
+     * - Kevin MacLeod - Vivacity
+     * 
+     * Wave 5:
+     * - Laszlo - Don't Look Down
+     * 
+     * Winning Screen:
+     * - Kevin MacLeod - Evening Melodrama
+     * 
+     * Game Over Screen:
+     * - Approaching Nirvana - Reset
+     * 
      */
     
     
