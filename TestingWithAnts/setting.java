@@ -19,6 +19,13 @@ public class setting extends World
     
     PlayButton play = new PlayButton(1);
     public boolean isPaused;
+    
+    /* All Music for each wave */
+    public GreenfootSound wave1Song;
+    public GreenfootSound wave2Song;
+    public GreenfootSound wave3Song;
+    public GreenfootSound wave4Song;
+    public GreenfootSound wave5Song;
     /**
      * Constructor for objects of class setting.
      * 
@@ -36,6 +43,18 @@ public class setting extends World
         wave = new WavesHUD(level);
         isPaused = false;
         
+        /* Initializing all the music for each wave */
+        wave1Song = new GreenfootSound("wave1Music_Track16.mp3");
+        wave1Song.setVolume(50);
+        wave2Song = new GreenfootSound("wave2Music_LifeOfRiley.mp3");
+        wave2Song.setVolume(50);        
+        wave3Song = new GreenfootSound("wave3Music_Hyperfun.mp3");
+        wave3Song.setVolume(50);
+        wave4Song = new GreenfootSound("wave4Music_Vivacity.mp3");
+        wave4Song.setVolume(50);
+        wave5Song = new GreenfootSound("wave5Music_Dont_Look_Down.mp3");
+        wave5Song.setVolume(40);
+        
         prepare();
     }
     
@@ -45,6 +64,8 @@ public class setting extends World
     public void act() 
     {
         checkPauseGame();
+        
+        checkMusic();
     }
     
     /**
@@ -136,6 +157,72 @@ public class setting extends World
     }
     
     /**
+     * Checks what music should be playing currently
+     */
+    public void checkMusic()
+    {
+        if (level == 1 && wave1Song.isPlaying() == false)
+        {
+            wave1Song.play();
+        }
+        else if (level == 2 && wave2Song.isPlaying() == false)
+        {
+            // stop the last song which should be from wave 1
+            stopMusic();
+            
+            wave2Song.play();
+        }
+        else if (level == 3 && wave3Song.isPlaying() == false)
+        {
+            // stop the last song which should be from wave 2
+            stopMusic();
+            
+            wave3Song.play();
+        }
+        else if (level == 4 && wave4Song.isPlaying() == false)
+        {
+            // stop the last song which should be from wave 3
+            stopMusic();
+            
+            wave4Song.play();
+        }
+        else if (level == 5 && wave5Song.isPlaying() == false)
+        {
+            // stop the last song which should be from wave 4
+            stopMusic();
+            
+            wave5Song.play();
+        }
+    }
+    
+    /**
+     * Stop All Music
+     */
+    public void stopMusic()
+    {
+        if (wave1Song.isPlaying() == true)
+        {
+            wave1Song.stop();
+        }
+        if (wave2Song.isPlaying() == true)
+        {
+            wave2Song.stop();
+        }
+        if (wave3Song.isPlaying() == true)
+        {
+            wave3Song.stop();
+        }
+        if (wave4Song.isPlaying() == true)
+        {
+            wave4Song.stop();
+        }
+        if (wave5Song.isPlaying() == true)
+        {
+            wave5Song.stop();
+        }
+    }
+    
+    /**
      * Returns the current level of the world -- Used for spawn rate
      */
     public int getLevel() {
@@ -164,7 +251,8 @@ public class setting extends World
         }
     }
     
-    public void endGame() {        
+    public void endGame() { 
+        stopMusic(); 
         Greenfoot.setWorld(new EndGameScreen(level, score));
     }
     

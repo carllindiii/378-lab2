@@ -10,17 +10,21 @@ import java.util.LinkedList;
 public class FireCracker extends Spawnables
 {
     public static final int MIN_SPARKS = 4; // the minimum amount of sparks per Fire Cracker
-    public static final int RANGE = 300; // randomness range for location of where sparks get added
+    public static final int RANGE = 360; // randomness range for location of where sparks get added
     
     public int totalSparks;
     public LinkedList<Spark> sparks;
     
+    public GreenfootImage fcImg;
     /**
      * Fire Cracker Constructor
      */
     public FireCracker()
     {
-        setImage(new GreenfootImage("FireCrackers.png"));
+        fcImg = new GreenfootImage("FireCrackers.png");
+        fcImg.scale(fcImg.getWidth() - 30, fcImg.getHeight() - 55);
+        
+        setImage(fcImg);
         totalSparks = Greenfoot.getRandomNumber(4) + MIN_SPARKS;
         sparks = new LinkedList<Spark>();
     }

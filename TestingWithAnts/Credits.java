@@ -54,10 +54,10 @@ public class Credits
      * - High-Impact Sound Effects - Track 16 (uniquetracks.com)
      * 
      * Wave 2:
-     * - Kevin MacLeod - Hyperfun
+     * - Kevin MacLeod - Life of Riley
      * 
      * Wave 3:
-     * - Kevin MacLeod - Life of Riley
+     * - Kevin MacLeod - Hyperfun
      * 
      * Wave 4:
      * - Kevin MacLeod - Vivacity

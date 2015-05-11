@@ -25,7 +25,7 @@ public class Spark extends AnimatedActor
         // Scale the spark images
         for (GreenfootImage img : images)
         {
-            img.scale(img.getWidth() - 300, img.getHeight() - 300);
+            img.scale(img.getWidth() - 250, img.getHeight() - 250);
         }
     }
     
