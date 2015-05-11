@@ -12,6 +12,7 @@ public class OpeningScreen extends World
     PlayButton play = new PlayButton(1);
     TutorialButton tut = new TutorialButton();
     
+    public GreenfootImage titleScreen;
     /**
      * Constructor for objects of class OpeningScreen.
      * 
@@ -20,15 +21,18 @@ public class OpeningScreen extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 600, 1);
+        
+        titleScreen = new GreenfootImage("TitleScreen.png");
+        
         prepare();
     }
     
     public void prepare() {
-        //Can set background here
-
+        setBackground(titleScreen);
+        
         // Add in buttons: Play/Tutorial/Credits
-        addObject(play, 400, 300);
-        addObject(tut, 400, 400);
+        addObject(play, 400, 400);
+        addObject(tut, 400, 500);
     }
     
     public void act() {

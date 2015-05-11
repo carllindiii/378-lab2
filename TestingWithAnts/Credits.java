@@ -20,6 +20,7 @@ public class Credits
      * "tree_stump.png" originally from canstockphoto.com but edited
      * Glue bottle in "GlueBottle.png" originally from coghillcartooning.com but edited
      * Facial images originally from 123rf.com but edited
+     * picnic basket in intro screen originally from tupain58.com
      * 
      * EVERYTHING ELSE WAS HAND-DRAWN OR MANUALLY CREATED
      * 

@@ -12,11 +12,12 @@ public class PlayButton extends MiscButtons
     public PlayButton(int type) {
         switch (type) {
             case 1:
-                GreenfootImage text = new GreenfootImage("PLAY", 75, Color.BLACK, null);
-                setImage(text);
+                //GreenfootImage text = new GreenfootImage("PLAY", 75, Color.BLACK, null);
+                GreenfootImage playButton = new GreenfootImage("Button_Play.png");
+                setImage(playButton);
                 break;
             case 2:
-                GreenfootImage img = new GreenfootImage("PlayAgainButton.png");
+                GreenfootImage img = new GreenfootImage("Button_PlayAgain.png");
                 setImage(img);
                 break;
         }

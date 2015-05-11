@@ -10,8 +10,9 @@ import java.awt.Color;
 public class TutorialButton extends MiscButtons
 {
     public TutorialButton() {
-        GreenfootImage text = new GreenfootImage("Tutorial", 75, Color.BLACK, null);
-        setImage(text);        
+        //GreenfootImage text = new GreenfootImage("Tutorial", 75, Color.BLACK, null);
+        GreenfootImage tutButton = new GreenfootImage("Button_Tutorial.png");
+        setImage(tutButton);        
     }
     
     /**

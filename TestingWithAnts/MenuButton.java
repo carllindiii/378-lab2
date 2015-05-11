@@ -9,7 +9,7 @@ import greenfoot.*;
 public class MenuButton extends MiscButtons
 {
     public MenuButton() {
-        GreenfootImage img = new GreenfootImage("MenuButton.png");
+        GreenfootImage img = new GreenfootImage("Button_MainMenu.png");
         setImage(img);
     }
     
