@@ -105,7 +105,9 @@ public class Spawnables extends Actor
                 // Press "7" for "Tidal Wave" Scorestreak
                 else if (Greenfoot.isKeyDown("7") && totalPower >= TIDAL_WAVE_COST) {
                     TidalWave wave = new TidalWave();
+                    TidalWaveOverlay overlay = new TidalWaveOverlay(wave);
                     getWorld().addObject(wave, 0, 250);
+                    getWorld().addObject(overlay, 0, 200);
                     
                     powerbar.removePower(TIDAL_WAVE_COST);
                     powerbar.inUse();
