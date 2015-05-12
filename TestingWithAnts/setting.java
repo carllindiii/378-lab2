@@ -116,10 +116,10 @@ public class setting extends World
         addObject(spawnables, 400, 550);
 
         Scoreboard scoreboard = new Scoreboard();
-        addObject(scoreboard, 600, 525);
+        addObject(scoreboard, 750, 570);
         
         wave_progress = new WavesProgression(points_wave_2);
-        addObject(wave_progress, 750, 570);
+        addObject(wave_progress, 600, 530);
 
         addObject(powerbar, 60, 565); // Add powerbar to world
 
@@ -277,7 +277,7 @@ public class setting extends World
                     wave_score %= points_wave_2;
                     removeObject(wave_progress);
                     wave_progress = new WavesProgression(points_wave_3);
-                    addObject(wave_progress, 750, 570);
+                    addObject(wave_progress, 600, 530);
                     nextLevel();
                 }
                 break;
@@ -286,7 +286,7 @@ public class setting extends World
                     wave_score %= points_wave_3;
                     removeObject(wave_progress);
                     wave_progress = new WavesProgression(points_wave_4);
-                    addObject(wave_progress, 750, 570);
+                    addObject(wave_progress, 600, 530);
                     nextLevel();
                 }
                 break;
@@ -295,7 +295,7 @@ public class setting extends World
                     wave_score %= points_wave_4;
                     removeObject(wave_progress);
                     wave_progress = new WavesProgression(points_wave_5);
-                    addObject(wave_progress, 750, 570);
+                    addObject(wave_progress, 600, 530);
                     nextLevel();
                 }
                 break;
@@ -304,7 +304,7 @@ public class setting extends World
                     wave_score %= points_wave_5;
                     removeObject(wave_progress);
                     wave_progress = new WavesProgression(points_freeplay);
-                    addObject(wave_progress, 750, 570);
+                    addObject(wave_progress, 600, 530);
                     nextLevel();
                 }
                 break;

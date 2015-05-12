@@ -26,7 +26,7 @@ public class WavesProgression extends Score
         setting w = (setting)getWorld();
         score = w.wave_score;
         
-        text = new GreenfootImage(score + "/" + denominator, 20, Color.WHITE, null);
+        text = new GreenfootImage(score + "/" + denominator, 26, Color.WHITE, null);
         setImage(text);
     }    
 }
