@@ -26,7 +26,7 @@ public class Food extends AnimatedActor
         // scale it the food images
         for(GreenfootImage img : images) 
         {
-            img.scale(img.getWidth() - 70, img.getHeight() - 70);
+            img.scale(img.getWidth() - 70, img.getHeight() - 45);
         }
     }
     

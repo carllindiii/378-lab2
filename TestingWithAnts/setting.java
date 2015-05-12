@@ -162,10 +162,10 @@ public class setting extends World
 
         
         /* Food SETUP */
-        addObject(food, 107, 431); // Add food to world
+        addObject(food, 120, 425); // Add food to world
 
         FoodCounter fc = new FoodCounter();
-        addObject(fc, food.getX(), food.getY() + 50);
+        addObject(fc, food.getX(), food.getY() + 60);
 
         // Makes sure that the pop-up for next wave is behind hudbar
         setPaintOrder(MiscButtons.class, WinningScreen.class, MiscButtons.class, Score.class, Powerbar.class, FoodCounter.class, Protagonist.class, WavesHUD.class, 
