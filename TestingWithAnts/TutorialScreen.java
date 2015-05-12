@@ -9,7 +9,7 @@ import java.awt.Color;
  */
 public class TutorialScreen extends World
 {
-    private static final int MAX_SCREEN = 10;
+    private static final int MAX_SCREEN = 8;
     private int currentScreen; // The current slide the tutorial is on. Back is -1, Continue is +1
     
     PlayButton play = new PlayButton(1); // Play Button - skip to playing
@@ -32,18 +32,18 @@ public class TutorialScreen extends World
     
     public void prepare() {
         // Set the image of the background
-        getBackground().drawImage(new GreenfootImage("Current Sreen: " + currentScreen, 20, Color.BLACK, null), 400, 300);
+        GreenfootImage img = new GreenfootImage("TutorialPg"+currentScreen+".png");
+        getBackground().drawImage(img, 0, 0);
         
         // Add buttons
         if (currentScreen == MAX_SCREEN) {
             // Final screen before actual game, next button is now just play button.
-            addObject(play, 650, 525);
+            addObject(play, 670, 50);
         }
         else {
-            addObject(play, 650, 75);
-            addObject(next, 650, 525);
+            addObject(next, 670, 50);
         }
-        addObject(back, 150, 525);
+        addObject(back, 130, 50);
     }
     
     public void act() {
