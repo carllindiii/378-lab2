@@ -7,7 +7,7 @@ import java.awt.Color;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class TempWavesHUD extends Background
+public class WavesLogic extends Background
 {
     GreenfootImage text;
     private int delay = 100;
@@ -16,7 +16,7 @@ public class TempWavesHUD extends Background
     
     private static final int Y_PLACEMENT = 480;
     
-    public TempWavesHUD(int level) {
+    public WavesLogic(int level) {
         if (level <= 5) {
             text = new GreenfootImage("NextWaveText.png");
             //text = new GreenfootImage("FreePlay.png");

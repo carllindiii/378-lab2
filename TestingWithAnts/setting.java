@@ -169,7 +169,7 @@ public class setting extends World
 
         // Makes sure that the pop-up for next wave is behind hudbar
         setPaintOrder(MiscButtons.class, WinningScreen.class, MiscButtons.class, Score.class, Powerbar.class, FoodCounter.class, Protagonist.class, WavesHUD.class, 
-            AnimatedActor.class, Spawnables.class, TidalWaveOverlay.class, Enemy.class, Food.class, GluePile.class, TempWavesHUD.class, setting.class); 
+            AnimatedActor.class, Spawnables.class, TidalWaveOverlay.class, Enemy.class, Food.class, GluePile.class, WavesLogic.class, setting.class); 
     }
     
     /**
@@ -294,7 +294,7 @@ public class setting extends World
                 wave = new WavesHUD(level);
                 
                 addObject(wave, x, y);
-                addObject(new TempWavesHUD(level), x, y);
+                addObject(new WavesLogic(level), x, y);
             }
         }
     }
@@ -318,7 +318,7 @@ public class setting extends World
         addObject(play, 650, 525);
         addObject(menu, 150, 525);
         stopMusic();
-        winSong.playLoop();
+        winSong.play();
         
         winGame = true;
     }
