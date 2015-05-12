@@ -6,14 +6,14 @@ import greenfoot.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class FastAntWave extends Background
+public class AntWaveIndicator extends Background
 {
-    private static final int TIME_ON_SCREEN = 500;
+    private static final int TIME_ON_SCREEN = 400;
     private int delay;
     private boolean transparent;
     GreenfootImage img;
     
-    public FastAntWave(int antType) {
+    public AntWaveIndicator(int antType) {
         switch (antType) {
             case 1:
                 img = new GreenfootImage("FastAntWave.png");
@@ -38,7 +38,7 @@ public class FastAntWave extends Background
     {
         setting w = (setting)getWorld();
         
-        if (delay % 25 == 0 && delay != 0) {
+        if (delay % 20 == 0 && delay != 0) {
             if (!transparent) {
                 img.setTransparency(0);
                 transparent = true;

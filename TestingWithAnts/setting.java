@@ -21,6 +21,7 @@ public class setting extends World
     PlayButton play = new PlayButton(3);
     MenuButton menu = new MenuButton();
     public boolean isPaused;
+    FoodCounter fc;
     
     /* All Music for each wave */
     public GreenfootSound wave1Song;
@@ -83,6 +84,14 @@ public class setting extends World
                 removeObjects(getObjects(WinningScreen.class));
                 removeObjects(getObjects(PlayButton.class));
                 removeObjects(getObjects(MenuButton.class));
+                removeObjects(getObjects(Food.class));
+                removeObjects(getObjects(FoodCounter.class));
+                removeObjects(getObjects(Enemy.class));
+                
+                food = new Food();
+                fc = new FoodCounter();
+                addObject(food, 107, 431); // Add food to world
+                addObject(fc, food.getX(), food.getY() + 50);
                 
                 winSong.stop();
             }
@@ -162,10 +171,10 @@ public class setting extends World
 
         
         /* Food SETUP */
-        addObject(food, 120, 425); // Add food to world
+        addObject(food, 107, 431); // Add food to world
 
-        FoodCounter fc = new FoodCounter();
-        addObject(fc, food.getX(), food.getY() + 60);
+        fc = new FoodCounter();
+        addObject(fc, food.getX(), food.getY() + 50);
 
         // Makes sure that the pop-up for next wave is behind hudbar
         setPaintOrder(MiscButtons.class, WinningScreen.class, MiscButtons.class, Score.class, Powerbar.class, FoodCounter.class, Protagonist.class, WavesHUD.class, 
