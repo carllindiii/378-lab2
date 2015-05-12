@@ -16,9 +16,9 @@ public class setting extends World
     public WavesHUD wave;
     public boolean winGame;
     
-    public int spawnThreshold = 80; // Value of spawn rate of enemies, Spwaner uses this
-    public static final int SPAWN_RATE_INC = 100; // Every X kills in freeplay will increase spawn.
-    public int checkSpawnIncrease = SPAWN_RATE_INC; // Used to prevent mass spawn increase at a particular score.
+    public int spawnThreshold = 1; // Used for freeplay spawn rate
+    public static final int NEXT_SPAWN_INCREASE = 100; // Every X kills in freeplay will increase spawn.
+    public int checkSpawnIncrease = NEXT_SPAWN_INCREASE; // Used to prevent mass spawn increase at a particular score.
     
     public static final int points_wave_2 = 50;
     public static final int points_wave_3 = 100;
@@ -318,7 +318,7 @@ public class setting extends World
             case 6:
                 if (wave_score == checkSpawnIncrease) {
                     spawnThreshold++;
-                    checkSpawnIncrease += SPAWN_RATE_INC;
+                    checkSpawnIncrease += NEXT_SPAWN_INCREASE;
                 }
                 break;
         }
