@@ -16,7 +16,17 @@ public class setting extends World
     public WavesHUD wave;
     public boolean winGame;
     
-    public static final int levelThreshold = 20; // Value used to determine points until next wave.
+    public int spawnThreshold = 80; // Value of spawn rate of enemies, Spwaner uses this
+    public static final int SPAWN_RATE_INC = 100; // Every X kills in freeplay will increase spawn.
+    public int checkSpawnIncrease = SPAWN_RATE_INC; // Used to prevent mass spawn increase at a particular score.
+    
+    public static final int points_wave_2 = 50;
+    public static final int points_wave_3 = 100;
+    public static final int points_wave_4 = 200;
+    public static final int points_wave_5 = 400;
+    public static final int points_freeplay = 800;
+    public int wave_score;
+    WavesProgression wave_progress;
     
     PlayButton play = new PlayButton(3);
     MenuButton menu = new MenuButton();
@@ -41,6 +51,7 @@ public class setting extends World
         
         // State variables initialization
         score = 0;
+        wave_score = 0;
         food = new Food();
         powerbar = new Powerbar();
         level = 1;
@@ -73,40 +84,11 @@ public class setting extends World
         if (winGame == false) {
             checkPauseGame();
             checkMusic();
+            checkWave();
         }
         else {
             // The game is currently in the Game Win Screen.
-            if (Greenfoot.mouseClicked(play)) {
-                // Enter into freeplay mode.
-                isPaused = false;
-                winGame = false;
-                
-                removeObjects(getObjects(WinningScreen.class));
-                removeObjects(getObjects(PlayButton.class));
-                removeObjects(getObjects(MenuButton.class));
-                removeObjects(getObjects(Food.class));
-                removeObjects(getObjects(FoodCounter.class));
-                removeObjects(getObjects(Enemy.class));
-                
-                food = new Food();
-                fc = new FoodCounter();
-                addObject(food, 120, 425); // Add food to world
-                addObject(fc, food.getX(), food.getY() + 60);
-                
-                winSong.stop();
-            }
-            // Return to Main Menu
-            if (Greenfoot.mouseClicked(menu)) {
-                isPaused = false;
-                winGame = false;
-                
-                removeObjects(getObjects(WinningScreen.class));
-                removeObjects(getObjects(PlayButton.class));
-                removeObjects(getObjects(MenuButton.class));
-                
-                winSong.stop();
-                Greenfoot.setWorld(new OpeningScreen());
-            }
+            winGameScreen();
         }
     }
     
@@ -135,6 +117,9 @@ public class setting extends World
 
         Scoreboard scoreboard = new Scoreboard();
         addObject(scoreboard, 600, 525);
+        
+        wave_progress = new WavesProgression(points_wave_2);
+        addObject(wave_progress, 750, 570);
 
         addObject(powerbar, 60, 565); // Add powerbar to world
 
@@ -285,26 +270,78 @@ public class setting extends World
         return level;
     }
     
+    public void checkWave() {
+        switch (level) {
+            case 1:
+                if (wave_score >= points_wave_2) {
+                    wave_score %= points_wave_2;
+                    removeObject(wave_progress);
+                    wave_progress = new WavesProgression(points_wave_3);
+                    addObject(wave_progress, 750, 570);
+                    nextLevel();
+                }
+                break;
+            case 2:
+                if (wave_score >= points_wave_3) {
+                    wave_score %= points_wave_3;
+                    removeObject(wave_progress);
+                    wave_progress = new WavesProgression(points_wave_4);
+                    addObject(wave_progress, 750, 570);
+                    nextLevel();
+                }
+                break;
+            case 3:
+                if (wave_score >= points_wave_4) {
+                    wave_score %= points_wave_4;
+                    removeObject(wave_progress);
+                    wave_progress = new WavesProgression(points_wave_5);
+                    addObject(wave_progress, 750, 570);
+                    nextLevel();
+                }
+                break;
+            case 4:
+                if (wave_score >= points_wave_5) {
+                    wave_score %= points_wave_5;
+                    removeObject(wave_progress);
+                    wave_progress = new WavesProgression(points_freeplay);
+                    addObject(wave_progress, 750, 570);
+                    nextLevel();
+                }
+                break;
+            case 5:
+                if (wave_score >= points_freeplay) {
+                    wave_score %= points_freeplay;
+                    removeObject(wave_progress);
+                    nextLevel();
+                }
+                break;
+            case 6:
+                if (wave_score == checkSpawnIncrease) {
+                    spawnThreshold++;
+                    checkSpawnIncrease += SPAWN_RATE_INC;
+                }
+                break;
+        }
+    }
+    
     /**
      * Advances the level
      */
     public void nextLevel() {
         // Checks whether or not the level can be changed. Prevents double stacking level increases
-        if (level * level * levelThreshold <= score) {
-            level++;
-            if (level >= 6) {
-                if (winGame == false)
-                    winGame();
-            }
-            else {
-                int x = wave.getX();
-                int y = wave.getY();
-                removeObject(wave);
-                wave = new WavesHUD(level);
-                
-                addObject(wave, x, y);
-                addObject(new WavesLogic(level), x, y);
-            }
+        level++;
+        if (level >= 6) {
+            if (winGame == false)
+                winGame();
+        }
+        else {
+            int x = wave.getX();
+            int y = wave.getY();
+            removeObject(wave);
+            wave = new WavesHUD(level);
+            
+            addObject(wave, x, y);
+            addObject(new WavesLogic(level), x, y);
         }
     }
     
@@ -330,6 +367,40 @@ public class setting extends World
         winSong.play();
         
         winGame = true;
+    }
+    
+    public void winGameScreen() {
+        if (Greenfoot.mouseClicked(play)) {
+            // Enter into freeplay mode.
+            isPaused = false;
+            winGame = false;
+            
+            removeObjects(getObjects(WinningScreen.class));
+            removeObjects(getObjects(PlayButton.class));
+            removeObjects(getObjects(MenuButton.class));
+            removeObjects(getObjects(Food.class));
+            removeObjects(getObjects(FoodCounter.class));
+            removeObjects(getObjects(Enemy.class));
+            
+            food = new Food();
+            fc = new FoodCounter();
+            addObject(food, 120, 425); // Add food to world
+            addObject(fc, food.getX(), food.getY() + 60);
+            
+            winSong.stop();
+        }
+        // Return to Main Menu
+        if (Greenfoot.mouseClicked(menu)) {
+            isPaused = false;
+            winGame = false;
+            
+            removeObjects(getObjects(WinningScreen.class));
+            removeObjects(getObjects(PlayButton.class));
+            removeObjects(getObjects(MenuButton.class));
+            
+            winSong.stop();
+            Greenfoot.setWorld(new OpeningScreen());
+        }
     }
     
     public void endGame() { 

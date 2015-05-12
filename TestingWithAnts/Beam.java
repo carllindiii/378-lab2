@@ -66,6 +66,7 @@ public class Beam extends AnimatedActor
         setting w = (setting)getWorld();
         
         w.score += enemies.size();
+        w.wave_score += enemies.size();
         w.removeObjects(enemies);
     }
 }

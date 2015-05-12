@@ -42,6 +42,7 @@ public class Enemy extends Actor
             setting w = (setting)getWorld();
             
             w.score += pointsToAdd;
+            w.wave_score += pointsToAdd;
             w.removeObject(actor);
         }
     }

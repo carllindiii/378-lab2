@@ -8,7 +8,6 @@ import greenfoot.*;
  */
 public class Spawner extends Actor
 {
-    public static int spawnThreshold = 80;
     public static int spawnRange = 1000;
     public static int fastAntThreshold = 40;
     public final static int maxAnts = 200;
@@ -48,35 +47,32 @@ public class Spawner extends Actor
                     case 6:
                         // Freeplay
                     case 5:
-                        if (Greenfoot.getRandomNumber(spawnRange) < ((spawnThreshold/w.level)/3))
+                        if (Greenfoot.getRandomNumber(spawnRange) < (w.spawnThreshold/10))
                         {
                             w.addObject(new NinjaAnt(), getX() + Greenfoot.getRandomNumber(50) - 25,
                                         getY() + Greenfoot.getRandomNumber(50) - 25);
                         }
                     case 4:
-                        if (Greenfoot.getRandomNumber(spawnRange) < ((spawnThreshold/w.level)/2))
+                        if (Greenfoot.getRandomNumber(spawnRange) < (w.spawnThreshold/6))
                         {
                             w.addObject(new StealthAnt(), getX() + Greenfoot.getRandomNumber(50) - 25,
                                         getY() + Greenfoot.getRandomNumber(50) - 25);
                         }
                     case 3:
-                        if (Greenfoot.getRandomNumber(spawnRange) < (spawnThreshold/w.level))
+                        if (Greenfoot.getRandomNumber(spawnRange) < (w.spawnThreshold/4))
                         {
                             w.addObject(new FastAnt(), getX() + Greenfoot.getRandomNumber(50) - 25,
                                         getY() + Greenfoot.getRandomNumber(50) - 25);
                         }
                     case 2:
                     case 1:
-                        if (Greenfoot.getRandomNumber(spawnRange) < (spawnThreshold))
+                        if (Greenfoot.getRandomNumber(spawnRange) < (w.spawnThreshold))
                         {
                             w.addObject(new Ant(), getX() + Greenfoot.getRandomNumber(50) - 25, 
                                         getY() + Greenfoot.getRandomNumber(50) - 25);
                         }
                         break;
                 }
-            }
-            if ((w.score > (w.level * w.level * w.levelThreshold)) && w.level <= 5) {
-                w.nextLevel();
             }
         }
     }    
