@@ -11,7 +11,7 @@ public class OpeningScreen extends World
 {
     PlayButton play = new PlayButton(1);
     TutorialButton tut = new TutorialButton();
-    PlayButton credits = new PlayButton(1); // CHANGE TO CREDITS BUTTON
+    CreditButton credits = new CreditButton(); // CHANGE TO CREDITS BUTTON
     
     public GreenfootImage titleScreen;
     public GreenfootSound introSong;
