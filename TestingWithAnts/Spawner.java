@@ -8,6 +8,10 @@ import greenfoot.*;
  */
 public class Spawner extends Actor
 {
+    /* Spawn Thresholds */
+    public static int wave1Threshold = 1;
+    public static int wave2Threshold = 1;
+    
     public static int spawnRange = 1000;
     public static int fastAntThreshold = 40;
     public final static int maxAnts = 200;

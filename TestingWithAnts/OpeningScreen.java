@@ -37,7 +37,7 @@ public class OpeningScreen extends World
         addObject(play, 400, 400);
         addObject(tut, 400, 500);
         
-        //introSong.play();
+        introSong.play();
     }
     
     public void act() {

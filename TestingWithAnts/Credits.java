@@ -37,13 +37,6 @@ public class Credits
      */
     
     
-    
-    /**
-     * IMPORTANT NOTES
-     * - Temporarily disabled opening screen and game over screen for developmental purposes
-     */
-    
-    
     /**
      * SOUNDTRACK SETUP
      * 
