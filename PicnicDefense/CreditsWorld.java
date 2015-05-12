@@ -20,8 +20,12 @@ public class CreditsWorld extends World
     }
     
     public void prepare() {
+        setBackground(new GreenfootImage("TitleScreen.png"));
+        
+        PauseBackground background = new PauseBackground();
+        addObject(background, 400, 300);
+        
         addObject(back, 150, 50);
-        addObject(new CreditsScroll(), 400, 600);
     }
     
     public void act() {
