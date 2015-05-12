@@ -27,13 +27,13 @@ public class WavesLogic extends Background
         }
         else if (level == 5) {
             // Final wave logic
-            text = new GreenfootImage("NextWaveText.png");
+            text = new GreenfootImage("FinalWaveText.png");
             setImage(text);
         }
     }
     
     /**
-     * Wave advancement is announced, drops down from top to middle of screen.
+     * Wave advancement is announced
      */
     public void act() 
     {
