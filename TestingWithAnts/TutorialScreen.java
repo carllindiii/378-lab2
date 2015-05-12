@@ -16,16 +16,19 @@ public class TutorialScreen extends World
     PlayButton back = new PlayButton(3); // Back Button - goes to previous tutorial screen (or main menu)
     PlayButton next = new PlayButton(5); // Continue button - goes to next tutorial screen
     
+    GreenfootSound introSong;
+    
     /**
      * Constructor for objects of class TutorialScreen.
      * 
      */
-    public TutorialScreen(int screenNumber) // screenNumber is the screen to set up.
+    public TutorialScreen(int screenNumber, GreenfootSound song) // screenNumber is the screen to set up.
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 600, 1);
   
         currentScreen = screenNumber;
+        introSong = song;
         
         prepare();
     }
@@ -48,17 +51,18 @@ public class TutorialScreen extends World
     
     public void act() {
         if (Greenfoot.mouseClicked(play)) {
+            introSong.stop();
             Greenfoot.setWorld(new setting());
         }
         else if (Greenfoot.mouseClicked(next) && currentScreen != MAX_SCREEN) {
-            Greenfoot.setWorld(new TutorialScreen(currentScreen + 1));
+            Greenfoot.setWorld(new TutorialScreen(currentScreen + 1, introSong));
         }
         else if (Greenfoot.mouseClicked(back)) {
             if (currentScreen == 1) {
                 Greenfoot.setWorld(new OpeningScreen());
             }
             else {
-                Greenfoot.setWorld(new TutorialScreen(currentScreen - 1));
+                Greenfoot.setWorld(new TutorialScreen(currentScreen - 1, introSong));
             }
         }
     }
