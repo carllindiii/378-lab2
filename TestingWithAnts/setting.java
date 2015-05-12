@@ -90,8 +90,8 @@ public class setting extends World
                 
                 food = new Food();
                 fc = new FoodCounter();
-                addObject(food, 107, 431); // Add food to world
-                addObject(fc, food.getX(), food.getY() + 50);
+                addObject(food, 120, 425); // Add food to world
+                addObject(fc, food.getX(), food.getY() + 60);
                 
                 winSong.stop();
             }
