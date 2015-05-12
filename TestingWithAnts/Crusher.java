@@ -9,12 +9,19 @@ import java.util.*;
  */
 public class Crusher extends Spawnables
 {
+    public static final int RANGE = 70; // Hit-detection range
+    
+    public GreenfootImage fistImg;
+    
     /**
      * Constructor
      */
     public Crusher()
     {
-        setImage(new GreenfootImage("CrushingFist.png"));
+        fistImg = new GreenfootImage("CrushingFist.png");
+        fistImg.scale(fistImg.getWidth(), fistImg.getHeight());
+        
+        setImage(fistImg);
     }
     
     
@@ -36,7 +43,7 @@ public class Crusher extends Spawnables
      */
     private void crush()
     {
-        List ants = getIntersectingObjects(Enemy.class);
+        List ants = getObjectsInRange(RANGE, Enemy.class);
         setting w = (setting)getWorld();
         
         // Play sound effect of fist slamming into the grassy ground

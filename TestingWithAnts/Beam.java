@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class Beam extends AnimatedActor
 {
-    public static final int BEAM_TIME_LIMIT = 350;
+    public static final int BEAM_TIME_LIMIT = 270;
     public static final int ALTERNATE = 4;
     
     public GreenfootSound beamSound;

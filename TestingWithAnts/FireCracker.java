@@ -22,7 +22,7 @@ public class FireCracker extends Spawnables
     public FireCracker()
     {
         fcImg = new GreenfootImage("FireCrackers.png");
-        fcImg.scale(fcImg.getWidth() - 30, fcImg.getHeight() - 55);
+        fcImg.scale(fcImg.getWidth() - 26, fcImg.getHeight() - 42);
         
         setImage(fcImg);
         totalSparks = Greenfoot.getRandomNumber(4) + MIN_SPARKS;

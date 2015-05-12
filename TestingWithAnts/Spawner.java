@@ -23,7 +23,7 @@ public class Spawner extends Actor
     public Spawner() {
         GreenfootImage image = new GreenfootImage("apple1.png");
         setImage(image);
-        image.setTransparency(100);
+        image.setTransparency(0);
         delay = 0;
     }
     
