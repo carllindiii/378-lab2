@@ -13,17 +13,21 @@ public class WavesLogic extends Background
     private int delay = 100;
     private int delayCounter = 0;
     private boolean exitting = false;
+    private int currLevel;
+    private int transparency = 255;
     
     private static final int Y_PLACEMENT = 480;
     
     public WavesLogic(int level) {
-        if (level <= 5) {
+        currLevel = level;
+        if (level <= 4) {
             text = new GreenfootImage("NextWaveText.png");
             //text = new GreenfootImage("FreePlay.png");
             setImage(text);
         }
-        else {
-            text = new GreenfootImage("FreePlay.png");
+        else if (level == 5) {
+            // Final wave logic
+            text = new GreenfootImage("NextWaveText.png");
             setImage(text);
         }
     }
@@ -34,32 +38,51 @@ public class WavesLogic extends Background
     public void act() 
     {
         setting w = (setting)getWorld();
-        if (exitting == false) {
-            if (getY() <= Y_PLACEMENT) {
-                delayCounter++;
+        
+        if (currLevel <= 4) {
+            // Display next wave at bottom right corner.
+            if (exitting == false) {
+                if (getY() <= Y_PLACEMENT) {
+                    delayCounter++;
+                }
+                else {
+                    setLocation(getX(), getY() - 3);
+                }
             }
-            else {
-                setLocation(getX(), getY() - 3);
+            
+            if (delayCounter == delay || exitting) {
+                exitting = true;
+                setLocation(getX(), getY() + 3);
+                if (getY() >= 525) {
+                    switch (w.level) {
+                        case 3:
+                            w.addObject(new AntWaveIndicator(1), getX(), Y_PLACEMENT);
+                            break;
+                        case 4:
+                            w.addObject(new AntWaveIndicator(2), getX(), Y_PLACEMENT);
+                            break;
+                        case 5:
+                            w.addObject(new AntWaveIndicator(3), getX(), Y_PLACEMENT);
+                            break;
+                    }
+                    w.removeObject(this);
+                 }
             }
         }
-        
-        if (delayCounter == delay || exitting) {
-            exitting = true;
-            setLocation(getX(), getY() + 3);
-            if (getY() >= 525) {
-                switch (w.level) {
-                    case 3:
-                        w.addObject(new FastAntWave(1), getX(), Y_PLACEMENT);
-                        break;
-                    case 4:
-                        w.addObject(new FastAntWave(2), getX(), Y_PLACEMENT);
-                        break;
-                    case 5:
-                        w.addObject(new FastAntWave(3), getX(), Y_PLACEMENT);
-                        break;
+        else if (currLevel == 5) {
+            // Final wave actions
+            setLocation(400, 300);
+            if (delayCounter == 8) {
+                transparency -= 10;
+                if (transparency <= 0) {
+                    w.removeObject(this);
                 }
-                w.removeObject(this);
-             }
+                else {
+                    text.setTransparency(transparency);
+                }
+                delayCounter = 0;
+            }
+            delayCounter++;
         }
     }    
 }

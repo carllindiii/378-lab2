@@ -13,10 +13,10 @@ public class Spawner extends Actor
     public static int fastAntThreshold = 40;
     public final static int maxAnts = 200;
     
-    private final static int MIN_X = 600;
+    private final static int MIN_X = 550;
     private final static int RANDOM_X = 200;
-    private final static int MIN_Y = 10;
-    private final static int RANDOM_Y = 100;
+    private final static int MIN_Y = 50;
+    private final static int RANDOM_Y = 50;
     
     private int delay;
     private final static int DELAY_MOVEMENT = 50;
@@ -50,23 +50,27 @@ public class Spawner extends Actor
                     case 5:
                         if (Greenfoot.getRandomNumber(spawnRange) < ((spawnThreshold/w.level)/3))
                         {
-                            w.addObject(new NinjaAnt(), getX(), getY());
+                            w.addObject(new NinjaAnt(), getX() + Greenfoot.getRandomNumber(50) - 25,
+                                        getY() + Greenfoot.getRandomNumber(50) - 25);
                         }
                     case 4:
                         if (Greenfoot.getRandomNumber(spawnRange) < ((spawnThreshold/w.level)/2))
                         {
-                            w.addObject(new StealthAnt(), getX(), getY());
+                            w.addObject(new StealthAnt(), getX() + Greenfoot.getRandomNumber(50) - 25,
+                                        getY() + Greenfoot.getRandomNumber(50) - 25);
                         }
                     case 3:
                         if (Greenfoot.getRandomNumber(spawnRange) < (spawnThreshold/w.level))
                         {
-                            w.addObject(new FastAnt(), getX(), getY());
+                            w.addObject(new FastAnt(), getX() + Greenfoot.getRandomNumber(50) - 25,
+                                        getY() + Greenfoot.getRandomNumber(50) - 25);
                         }
                     case 2:
                     case 1:
                         if (Greenfoot.getRandomNumber(spawnRange) < (spawnThreshold))
                         {
-                            w.addObject(new Ant(), getX(), getY());
+                            w.addObject(new Ant(), getX() + Greenfoot.getRandomNumber(50) - 25, 
+                                        getY() + Greenfoot.getRandomNumber(50) - 25);
                         }
                         break;
                 }
