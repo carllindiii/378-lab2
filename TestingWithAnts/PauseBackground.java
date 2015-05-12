@@ -6,7 +6,7 @@ import greenfoot.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class PauseBackground extends MiscButtons
+public class PauseBackground extends Background
 {
     public PauseBackground() {
         GreenfootImage img = new GreenfootImage("PauseBackground.png");

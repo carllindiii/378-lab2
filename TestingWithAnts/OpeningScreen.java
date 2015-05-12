@@ -11,6 +11,7 @@ public class OpeningScreen extends World
 {
     PlayButton play = new PlayButton(1);
     TutorialButton tut = new TutorialButton();
+    PlayButton credits = new PlayButton(1); // CHANGE TO CREDITS BUTTON
     
     public GreenfootImage titleScreen;
     public GreenfootSound introSong;
@@ -35,7 +36,8 @@ public class OpeningScreen extends World
         
         // Add in buttons: Play/Tutorial/Credits
         addObject(play, 400, 400);
-        addObject(tut, 400, 500);
+        addObject(tut, 400, 475);
+        addObject(credits, 400, 550);
         
         introSong.play();
     }
@@ -49,6 +51,10 @@ public class OpeningScreen extends World
         if (Greenfoot.mouseClicked(tut)) {
             //stopSong();
             Greenfoot.setWorld(new TutorialScreen(1, introSong));
+        }
+        
+        if (Greenfoot.mouseClicked(credits)) {
+            Greenfoot.setWorld(new CreditsWorld());
         }
     }
     
