@@ -25,6 +25,9 @@ public class CreditsWorld extends World
         PauseBackground background = new PauseBackground();
         addObject(background, 400, 300);
         
+        CreditsScroll cred = new CreditsScroll();
+        addObject(cred, 400, 400);
+        
         addObject(back, 150, 50);
     }
     

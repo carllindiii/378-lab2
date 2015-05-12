@@ -10,7 +10,7 @@ public class CreditsScroll extends Background
 {
     public CreditsScroll() {
         // Set credits scroll to the image of the credits
-        GreenfootImage img = new GreenfootImage("Face9_satisfied.png");
+        GreenfootImage img = new GreenfootImage("Credits.png");
         setImage(img);
     }
     
@@ -20,6 +20,6 @@ public class CreditsScroll extends Background
      */
     public void act() 
     {
-        setLocation(getX(), getY() - 1);
+        //setLocation(getX(), getY() - 1);
     }    
 }
