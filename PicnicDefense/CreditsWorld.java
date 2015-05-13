@@ -9,13 +9,16 @@ import greenfoot.*;
 public class CreditsWorld extends World
 {
     PlayButton back = new PlayButton(3);
+    GreenfootSound introSong;
+    
     /**
      * Constructor for objects of class CreditsWorld.
      * 
      */
-    public CreditsWorld()
+    public CreditsWorld(GreenfootSound song)
     { 
         super(800, 600, 1);
+        introSong = song;
         prepare();
     }
     
@@ -33,7 +36,7 @@ public class CreditsWorld extends World
     
     public void act() {
         if (Greenfoot.mouseClicked(back)) {
-            Greenfoot.setWorld(new OpeningScreen());
+            Greenfoot.setWorld(new OpeningScreen(false, introSong));
         }
     }
 }

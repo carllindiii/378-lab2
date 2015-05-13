@@ -38,14 +38,13 @@ public class OpeningScreen extends World
     /**
      * Special constructor to state whether or not the intro song should be played or not
      */
-    public OpeningScreen(boolean ignoreSong)
+    public OpeningScreen(boolean ignoreSong, GreenfootSound songPlaying)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 600, 1);
         
         titleScreen = new GreenfootImage("TitleScreen.png");
-        introSong = new GreenfootSound("MainMenuMusic_Overcast.mp3");
-        introSong.setVolume(50);
+        introSong = songPlaying;
         
         playSong = ignoreSong;
         
@@ -79,7 +78,7 @@ public class OpeningScreen extends World
         }
         
         if (Greenfoot.mouseClicked(credits)) {
-            Greenfoot.setWorld(new CreditsWorld());
+            Greenfoot.setWorld(new CreditsWorld(introSong));
         }
     }
     
