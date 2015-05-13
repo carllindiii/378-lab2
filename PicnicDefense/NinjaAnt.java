@@ -21,6 +21,13 @@ public class NinjaAnt extends StealthAnt
         setImage(img);
     }
     
+    public NinjaAnt(int takeSpeed) {
+        super(takeSpeed);
+        SPEED = 2;
+        img = new GreenfootImage("NinjaAnt.png");
+        setImage(img);
+    }
+    
     /**
      * Act - do whatever the NinjaAnt wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.

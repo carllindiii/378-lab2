@@ -33,6 +33,15 @@ public class Ant extends Enemy
         SPEED = 1;
     }
     
+    public Ant(int takeSpeed)
+    {
+        canMove = true;
+        hasFood = false;
+        takeTimer = takeSpeed;
+        dropTimer = DROP_TIME;
+        SPEED = 1;
+    }
+    
     /**
      * Act - do whatever the Ant wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -95,7 +104,7 @@ public class Ant extends Enemy
         // Ant is on top of the food
         if (getObjectsInRange(20, Food.class).isEmpty() == false)
         {
-            if (Greenfoot.getRandomNumber(1000) < 300)
+            if (Greenfoot.getRandomNumber(1000) < 400)
             {
                 food = (Food)(getObjectsInRange(1700, Food.class).get(0));
                 turnTowards(food.getX(), food.getY());

@@ -15,6 +15,7 @@ public class OpeningScreen extends World
     
     public GreenfootImage titleScreen;
     public GreenfootSound introSong;
+    public boolean playSong;
     /**
      * Constructor for objects of class OpeningScreen.
      * 
@@ -28,6 +29,26 @@ public class OpeningScreen extends World
         introSong = new GreenfootSound("MainMenuMusic_Overcast.mp3");
         introSong.setVolume(50);
         
+        playSong = true;
+        
+        prepare();
+    }
+    
+    
+    /**
+     * Special constructor to state whether or not the intro song should be played or not
+     */
+    public OpeningScreen(boolean ignoreSong)
+    {    
+        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        super(800, 600, 1);
+        
+        titleScreen = new GreenfootImage("TitleScreen.png");
+        introSong = new GreenfootSound("MainMenuMusic_Overcast.mp3");
+        introSong.setVolume(50);
+        
+        playSong = ignoreSong;
+        
         prepare();
     }
     
@@ -39,7 +60,11 @@ public class OpeningScreen extends World
         addObject(tut, 400, 475);
         addObject(credits, 400, 550);
         
-        introSong.play();
+        if (playSong == true)
+        {
+            introSong.play();
+            playSong = false;
+        }
     }
     
     public void act() {

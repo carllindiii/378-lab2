@@ -59,7 +59,7 @@ public class TutorialScreen extends World
         }
         else if (Greenfoot.mouseClicked(back)) {
             if (currentScreen == 1) {
-                Greenfoot.setWorld(new OpeningScreen());
+                Greenfoot.setWorld(new OpeningScreen(false));
             }
             else {
                 Greenfoot.setWorld(new TutorialScreen(currentScreen - 1, introSong));

@@ -62,7 +62,7 @@ public class Beam extends AnimatedActor
      */
     public void lightUp()
     {
-        List enemies = getIntersectingObjects(Enemy.class);
+        List enemies = getIntersectingObjects(Ant.class);
         setting w = (setting)getWorld();
         
         w.score += enemies.size();

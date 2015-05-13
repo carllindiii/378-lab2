@@ -60,7 +60,30 @@ public class GluePile extends Glue
     public void slowDown()
     {
         List<Ant> ants = getIntersectingObjects(Ant.class);
+        
         for (Ant ant : ants)
+        {
+            // 50% chance of allowing the ant to move if the modulo result is 0
+            if (glueTime % MOD_AGAINST_THIS == 0 && Greenfoot.getRandomNumber(100) < 50)
+            {
+                ant.canMove = true;
+            }
+            /* Allows ants to move every time the modulo result is 1
+             * Also GUARANTEES ants can move after glue pile disappears */
+            else if (glueTime % MOD_AGAINST_THIS == 1)
+            {
+                ant.canMove = true;
+            }
+            // Otherwise stop movement for this cycle
+            else
+            {
+                ant.canMove = false;
+            }
+        }
+        
+        
+        List<FastAnt> fastAnts = getIntersectingObjects(FastAnt.class);
+        for (FastAnt ant : fastAnts)
         {
             // 50% chance of allowing the ant to move if the modulo result is 0
             if (glueTime % MOD_AGAINST_THIS == 0 && Greenfoot.getRandomNumber(100) < 50)

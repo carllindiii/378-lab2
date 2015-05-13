@@ -20,11 +20,11 @@ public class setting extends World
     public static final int NEXT_SPAWN_INCREASE = 100; // Every X kills in freeplay will increase spawn.
     public int checkSpawnIncrease = NEXT_SPAWN_INCREASE; // Used to prevent mass spawn increase at a particular score.
     
-    public static final int points_wave_2 = 50;
-    public static final int points_wave_3 = 100;
-    public static final int points_wave_4 = 200;
-    public static final int points_wave_5 = 400;
-    public static final int points_freeplay = 800;
+    public static final int points_wave_2 = 75;
+    public static final int points_wave_3 = 150;
+    public static final int points_wave_4 = 300;
+    public static final int points_wave_5 = 600;
+    public static final int points_freeplay = 1500;
     public int wave_score;
     WavesProgression wave_progress;
     

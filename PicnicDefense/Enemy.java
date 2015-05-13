@@ -8,6 +8,9 @@ import greenfoot.*;
  */
 public class Enemy extends Actor
 {
+    //public static final int FASTER_TAKE_TIME = 8; // less number of cycles to take food
+    //public static final int HARD_THRESHOLD = 4000; // score limit that will trigger the faster take time
+    
     public int multiplier = 2;
     
     /**
