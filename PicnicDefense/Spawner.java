@@ -8,26 +8,33 @@ import greenfoot.*;
  */
 public class Spawner extends Actor  
 {
-    // Values used to determine spawn rate of ants at each wave level.
-    // Regular ants
-    private final static int WAVE_1_REG = 60;
-    private final static int WAVE_2_REG = 60;
-    private final static int WAVE_3_REG = 60;
-    private final static int WAVE_4_REG = 60;
-    private final static int WAVE_5_REG = 60;
-    // Fast Ants
-    private final static int WAVE_3_FAST = 60;
-    private final static int WAVE_4_FAST = 60;
-    private final static int WAVE_5_FAST = 60;
-    // Stealth ants
-    private final static int WAVE_4_STEALTH = 60;
-    private final static int WAVE_5_STEALTH = 60;
-    // Ninja ants
-    private final static int WAVE_5_NINJA = 60;
+    /* Values used to determine spawn rate of ants at each wave level. */
+    // = WAVE 1 =
+    private final static int WAVE_1_REG = 18; // Regular ants
     
-    // Spawner logic stuff
-    public static int spawnRange = 1000;
-    public static int fastAntThreshold = 40;
+    // = WAVE 2 =
+    private final static int WAVE_2_REG = 35; // Regular ants
+    
+    // = WAVE 3 =
+    private final static int WAVE_3_REG = 40; // Regular ants
+    private final static int WAVE_3_FAST = 20; // Fast Ants
+    
+    // = WAVE 4 =
+    private final static int WAVE_4_REG = 40; // Regular ants
+    private final static int WAVE_4_FAST = 50; // Fast Ants
+    private final static int WAVE_4_STEALTH = 50; // Stealth ants
+    
+    // = WAVE 5 =
+    private final static int WAVE_5_REG = 50; // Regular ants
+    private final static int WAVE_5_FAST = 80; // Fast Ants
+    private final static int WAVE_5_STEALTH = 80; // Stealth ants
+    private final static int WAVE_5_NINJA = 80; // Ninja ants 
+    
+    
+    
+    /* Spawner logic stuff */
+    public static final int spawnRange = 1000;
+    // public static int fastAntThreshold = 40;
     public final static int maxAnts = 200;
     
     private final static int MIN_X = 550;

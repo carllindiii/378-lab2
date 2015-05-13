@@ -95,7 +95,7 @@ public class Ant extends Enemy
         // Ant is on top of the food
         if (getObjectsInRange(20, Food.class).isEmpty() == false)
         {
-            if (Greenfoot.getRandomNumber(1000) < 500)
+            if (Greenfoot.getRandomNumber(1000) < 300)
             {
                 food = (Food)(getObjectsInRange(1700, Food.class).get(0));
                 turnTowards(food.getX(), food.getY());
